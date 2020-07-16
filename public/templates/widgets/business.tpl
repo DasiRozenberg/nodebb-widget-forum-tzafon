@@ -28,8 +28,6 @@
 /* globals app, socket, translator, templates*/
 (function() {
 	function onLoad() {
-		console.log(config);
-		debugger
 		var replies = $('#recent_posts');
 
 		app.createUserTooltips();
