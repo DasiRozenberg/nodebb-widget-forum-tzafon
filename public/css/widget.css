@@ -84,13 +84,13 @@
 
 .business .filter-container {
     display: flex;
-    background: blue;
+    background: #1D497B;
     padding: .75em;
     margin: 0 .75em;
 }
 
 .business .filter-container select {
-    background: blue;
+    background: #1D497B;
     margin-left: 1em;
     font-size: larger;
     border: 1px solid white;
@@ -105,7 +105,7 @@
 }
 
 .business .filter-container a {
-    color: blue;
+    color: #1D497B;
     background: white;
     padding: .5em 2em;
 }
