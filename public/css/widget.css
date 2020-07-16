@@ -84,4 +84,28 @@
 
 .business .filter-container {
     display: flex;
+    background: blue;
+    padding: .75em;
+    margin: 0 .75em;
+}
+
+.business .filter-container select {
+    background: blue;
+    margin-left: 1em;
+    font-size: larger;
+    border: 1px solid white;
+    color: white;
+    line-height: 1.5em;
+    height: 2em;
+    width: 14em;
+}
+
+.flex-fill {
+    flex-grow: 1;
+}
+
+.business .filter-container a {
+    color: blue;
+    background: white;
+    padding: .5em 2em;
 }

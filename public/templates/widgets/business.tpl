@@ -2,13 +2,13 @@
 	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
 		<div class="row">
 			<div class="filter-container col-xs-12">
-				<select>
+				<select id="subcategory">
 					<option>בחר תת קטגוריה</option>
 					<option>בגדי ילדים</option>
 					<option>בגדי גברים</option>
 					<option>בגדי נשים</option>
 				</select>		
-				<select>
+				<select id="city">
 					<option>בחר עיר</option>
 					<option>חיפה</option>
 					<option>צפת</option>
@@ -80,7 +80,12 @@
 			});
 			$('.popup-close span').click(function (e){
 				$(this).parents('.popup').hide();
-				e.stopImmediatePropagation()
+				e.stopImmediatePropagation();
+			});
+			$('.filter-container select', html).change(function (e){
+				var subcategory = $('#subcategory').val();
+				var city = $('#city').val();
+				debugger
 			});
 		}
 	}
