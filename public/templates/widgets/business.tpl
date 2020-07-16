@@ -5,29 +5,29 @@
 			<div class="item col-sm-3">
 				<div data-pid="{posts.pid}" class="clearfix widget-posts">
 					<div class="item-header">
-						{posts.data.0}
+						{posts.data.1}
 					</div>
 					<hr class="first-hr" />
 					<hr class="second-hr" />
 					<div class="item-body">
-						<i class="fa fa-list"></i>{posts.data.1}<br />
 						<i class="fa fa-list"></i>{posts.data.2}<br />
 						<i class="fa fa-list"></i>{posts.data.3}<br />
 						<i class="fa fa-list"></i>{posts.data.4}<br />
+						<i class="fa fa-list"></i>{posts.data.5}<br />
 					</div>
 				</div>
 				<div class="popup" style="display:none">
 					<div class="popup-content">
 						<div class="popup-header">
-							{posts.data.0}
+							{posts.data.1}
 						</div>
 						<div class="popup-body">
-							<i class="fa fa-list"></i>{posts.data.1}<br />
 							<i class="fa fa-list"></i>{posts.data.2}<br />
 							<i class="fa fa-list"></i>{posts.data.3}<br />
 							<i class="fa fa-list"></i>{posts.data.4}<br />
 							<i class="fa fa-list"></i>{posts.data.5}<br />
 							<i class="fa fa-list"></i>{posts.data.6}<br />
+							<i class="fa fa-list"></i>{posts.data.7}<br />
 						</div>
 					</div>
 				</div>
