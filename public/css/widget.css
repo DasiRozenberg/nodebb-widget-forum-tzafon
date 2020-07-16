@@ -139,7 +139,22 @@
 }
 
 .business .item .popup-content {
-    width: 400px;
+    width: 550px;
     height: 400px;
     background-color: white;
+    box-shadow: 0 0 8px black;
+    border-radius: 15px;
+}
+
+.business .item .popup-close {
+    text-align: left;
+}
+
+.business .item .popup-header {
+    border-bottom: 2px dashed #1D497B;
+    padding: 20px;
+}
+
+.business .item .popup-body {
+    padding: 20px
 }

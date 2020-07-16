@@ -17,6 +17,9 @@
 				</div>
 				<div class="popup" style="display:none">
 					<div class="popup-content">
+						<div class="popup-close">
+							<span>X</span>
+						</div>
 						<div class="popup-header">
 							{posts.data.1}
 						</div>
@@ -55,6 +58,9 @@
 
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
+			});
+			$('.popup-close span', html).click(function (e){
+				$(this).parents('.popup').hide();
 			});
 		}
 	}
