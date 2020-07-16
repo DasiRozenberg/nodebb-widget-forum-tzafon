@@ -46,10 +46,13 @@ Widget.renderBusinessData = async function(widget) {
             data: item.content.split('<br />\n')
         }));
     }
+    const isadmin = await user.isAdministrator(widget.uid);
+
     const data = {
         posts: postsData,
         numPosts: numPosts,
         cid: cid,
+        isadmin: isadmin,
         relative_path: nconf.get('relative_path'),
     };
     console.log(data);

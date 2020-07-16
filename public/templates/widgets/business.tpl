@@ -1,4 +1,4 @@
-<div class="business">
+<div class="business" data-isadmin="{isadmin}">
 	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
 		<div class="row">
 		<!-- BEGIN posts -->
@@ -43,7 +43,11 @@
 		processHtml(business);
 
 		function processHtml(html) {
-			$('[component="category"], .subcategory, .clearfix, hr, p', '.category').hide();
+			var isadmin = business.attr('data-isadmin');
+			if (isadmin === 'true') {
+				$('[component="category"], .subcategory, .clearfix, hr, p', '.category').show();
+			}
+
 			html.appendTo($('.category'));
 
 			$('.item', html).click(function (e){
