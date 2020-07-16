@@ -10,9 +10,8 @@
 					<hr class="first-hr" />
 					<hr class="second-hr" />
 					<div class="item-body">
-						<i class="fa fa-list"></i>{posts.data.2}<br />
-						<i class="fa fa-list"></i>{posts.data.3}<br />
-						<i class="fa fa-list"></i>{posts.data.4}<br />
+						<i class="fa fa-th-large"></i>{posts.data.2}<br />
+						<i class="fa fa-map-marker"></i>{posts.data.4}<br />
 						<i class="fa fa-list"></i>{posts.data.5}<br />
 					</div>
 				</div>
@@ -22,12 +21,12 @@
 							{posts.data.1}
 						</div>
 						<div class="popup-body">
-							<i class="fa fa-list"></i>{posts.data.2}<br />
-							<i class="fa fa-list"></i>{posts.data.3}<br />
-							<i class="fa fa-list"></i>{posts.data.4}<br />
-							<i class="fa fa-list"></i>{posts.data.5}<br />
-							<i class="fa fa-list"></i>{posts.data.6}<br />
-							<i class="fa fa-list"></i>{posts.data.7}<br />
+							<i class="fa fa-th-large"></i>{posts.data.2}<br />
+							<i class="fa fa-map-marker"></i>{posts.data.4}<br />
+							<i class="fa fa-clock-o"></i>{posts.data.5}<br />
+							
+							<div class="notes">הערות</div>
+							{posts.data.6}<br />
 						</div>
 					</div>
 				</div>
