@@ -47,13 +47,13 @@ Widget.renderBusinessData = async function(widget) {
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
-    const cities = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
-    const subcategories = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : ''));
+    const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
+    const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : ''));
 
     const data = {
         posts: postsData,
-        cities: [...cities],
         subcategories: [...subcategories],
+        cities: [...cities],
         cid: cid,
         isadmin: isadmin,
         relative_path: nconf.get('relative_path'),

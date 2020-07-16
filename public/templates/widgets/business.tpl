@@ -1,5 +1,5 @@
 <div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
-	<div class="businessContainer container" data-cid="{cid}">
+	<div class="businessContainer" data-cid="{cid}">
 		<div class="row">
 			<div class="filter-container col-xs-12">
 				<select id="subcategory">
