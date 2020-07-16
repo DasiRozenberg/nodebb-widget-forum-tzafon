@@ -1,6 +1,6 @@
 {
     "name": "nodebb-widget-forum-tzafon",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "NodeBB Forum Tzafon Widgets",
     "main": "library.js",
     "scripts": {

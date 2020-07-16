@@ -41,6 +41,8 @@
 		processHtml(business);
 
 		function processHtml(html) {
+			$('[component="category"], .subcategory, .clearfix, hr, p', '.category').hide();
+			html.appendTo($('.category'))
 			$('.item', html).click(function (e){
 				debugger
 				$(e.target)
