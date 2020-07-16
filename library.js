@@ -61,7 +61,7 @@ Widget.renderBusinessData = async function(widget) {
     console.log(data);
 
     widget.html = await app.renderAsync('widgets/business', data);
-    widget.html += '<pre style="width:650px">' + JSON.stringify(data) + '</pre>'
+    widget.html += '<pre style="display:none;width:650px">' + JSON.stringify(data) + '</pre>'
     return widget;
 
 };

@@ -71,6 +71,7 @@
 			var isadmin = business.attr('data-isadmin');
 			if (isadmin === 'true') {
 				$('.category').show();
+				$('pre').show();
 			}
 
 			html.insertAfter($('.category'));
