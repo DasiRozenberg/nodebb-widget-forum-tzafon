@@ -108,6 +108,10 @@
     display: none;
 }
 
+.business .item {
+    box-shadow: 0 0 6px 0px black;
+}
+
 .business .item .first-hr {
     border: none;
     margin: 0;
@@ -118,4 +122,22 @@
     border: none;
     margin: 0;
     border-bottom: 2px solid #F6A124;
+}
+
+.business .item .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #00000052;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.business .item .popup-content {
+    width: 400px;
+    height: 400px;
 }

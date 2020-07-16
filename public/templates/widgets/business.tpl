@@ -17,13 +17,15 @@
 				</div>
 			</div>
 			<div class="popup" style="display:none">
-				<div class="popup-header">
-					{posts.data.0}
-				</div>
-				<div class="popup-body">
-					<i class="fa fa-list"></i>{posts.data.1}<br />
-					<i class="fa fa-list"></i>{posts.data.2}<br />
-					<i class="fa fa-list"></i>{posts.data.3}<br />
+				<div class="popup-content">
+					<div class="popup-header">
+						{posts.data.0}
+					</div>
+					<div class="popup-body">
+						<i class="fa fa-list"></i>{posts.data.1}<br />
+						<i class="fa fa-list"></i>{posts.data.2}<br />
+						<i class="fa fa-list"></i>{posts.data.3}<br />
+					</div>
 				</div>
 			</div>
 		<!-- END posts -->
@@ -42,7 +44,8 @@
 
 		function processHtml(html) {
 			$('[component="category"], .subcategory, .clearfix, hr, p', '.category').hide();
-			html.appendTo($('.category'))
+			html.appendTo($('.category'));
+
 			$('.item', html).click(function (e){
 				$('.popup', this.paretnts('.item')).show();
 			});
