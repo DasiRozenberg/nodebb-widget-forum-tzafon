@@ -110,6 +110,7 @@
 
 .business .item {
     box-shadow: 0 0 6px 0px black;
+    margin: 10px;
 }
 
 .business .item .first-hr {

@@ -13,6 +13,7 @@
 						<i class="fa fa-list"></i>{posts.data.1}<br />
 						<i class="fa fa-list"></i>{posts.data.2}<br />
 						<i class="fa fa-list"></i>{posts.data.3}<br />
+						<i class="fa fa-list"></i>{posts.data.4}<br />
 					</div>
 				</div>
 			</div>
@@ -25,6 +26,9 @@
 						<i class="fa fa-list"></i>{posts.data.1}<br />
 						<i class="fa fa-list"></i>{posts.data.2}<br />
 						<i class="fa fa-list"></i>{posts.data.3}<br />
+						<i class="fa fa-list"></i>{posts.data.4}<br />
+						<i class="fa fa-list"></i>{posts.data.5}<br />
+						<i class="fa fa-list"></i>{posts.data.6}<br />
 					</div>
 				</div>
 			</div>
@@ -48,7 +52,7 @@
 				$('[component="category"], .subcategory, .clearfix, hr, p', '.category').show();
 			}
 
-			html.appendTo($('.category'));
+			html.insertAfter($('.category'));
 
 			$('.item', html).click(function (e){
 				$('.popup', this.paretnts('.item')).show();
