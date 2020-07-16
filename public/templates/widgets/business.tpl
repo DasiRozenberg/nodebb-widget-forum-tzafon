@@ -4,15 +4,14 @@
 		<!-- BEGIN posts -->
 			<div class="item col-sm-3">
 				<div data-pid="{posts.pid}" class="clearfix widget-posts">
-				<!-- BEGIN posts.data -->
-					<div>{posts.data}</div>
-				<!-- END posts.data -->
-				<div class="header">
-					<img src="{posts.data.1}"/>
-				</div>
-				<div class="body">
-					<i class="fa fa-list"></i>{posts.data.2}<br />
-					<i class="fa fa-list"></i>{posts.data.3}<br />
+					<div class="header">
+						{posts.data.0}
+					</div>
+					<div class="body">
+						<i class="fa fa-list"></i>{posts.data.1}<br />
+						<i class="fa fa-list"></i>{posts.data.2}<br />
+						<i class="fa fa-list"></i>{posts.data.3}<br />
+					</div>
 				</div>
 			</div>
 		<!-- END posts -->
