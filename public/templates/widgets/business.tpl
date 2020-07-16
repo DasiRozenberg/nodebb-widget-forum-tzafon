@@ -1,18 +1,18 @@
 <div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
-	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
+	<div class="businessContainer container" data-cid="{cid}">
 		<div class="row">
 			<div class="filter-container col-xs-12">
 				<select id="subcategory">
 					<option value="">בחר תת קטגוריה</option>
-					<option>בגדי ילדים</option>
-					<option>בגדי גברים</option>
-					<option>בגדי נשים</option>
+					<!-- BEGIN subcategories -->
+					<option value="{subcategories}">{subcategories}</option>
+					<!-- END subcategories -->
 				</select>		
 				<select id="city">
 					<option value="">בחר עיר</option>
-					<option>חיפה</option>
-					<option>צפת</option>
-					<option>רכסים</option>
+					<!-- BEGIN cities -->
+					<option value="{cities}">{cities}</option>
+					<!-- END cities -->
 				</select>
 				<div class="flex-fill"></div>
 				<a class="contact" href="/contact">פרסום ועדכון עסק</a>
@@ -93,6 +93,7 @@
 					items = items.filter(":contains('" + city + "')");
 				}
 				$(".item").not(items).hide();
+				items.show();
 			});
 		}
 	}

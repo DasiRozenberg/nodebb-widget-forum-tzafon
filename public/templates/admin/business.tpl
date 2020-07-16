@@ -1,5 +1,3 @@
-<label>Amount of Posts to display:</label>
-<input type="text" class="form-control" name="numPosts" placeholder="1000" />
 <label>
 	Show On Category:<br />
 	<small>Leave blank to show on all categories</small>

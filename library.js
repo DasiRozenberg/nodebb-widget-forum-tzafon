@@ -37,10 +37,9 @@ Widget.renderBusinessData = async function(widget) {
     } else if (widget.templateData.template.topic && widget.templateData.category) {
         cid = widget.templateData.category.cid;
     }
-    const numPosts = widget.data.numPosts || 1000;
     let postsData;
     if (cid) {
-        postsData = await categories.getRecentReplies(cid, widget.uid, numPosts);
+        postsData = await categories.getRecentReplies(cid, widget.uid, 1000);
         postsData = postsData.map(item => ({
             ...item,
             data: item.content.split('<br />\n')
@@ -48,9 +47,13 @@ Widget.renderBusinessData = async function(widget) {
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
+    cities = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
+    subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : ''));
+
     const data = {
         posts: postsData,
-        numPosts: numPosts,
+        cities: cities,
+        subcategories: subcategories,
         cid: cid,
         isadmin: isadmin,
         relative_path: nconf.get('relative_path'),
