@@ -1,20 +1,22 @@
 <div class="business" data-isadmin="{isadmin}">
 	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
-		<div class="filter-container">
-			<select>
-				<option>בחר תת קטגוריה</option>
-				<option>בגדי ילדים</option>
-				<option>בגדי גברים</option>
-				<option>בגדי נשים</option>
-			</select>		
-			<select>
-				<option>בחר עיר</option>
-				<option>חיפה</option>
-				<option>צפת</option>
-				<option>רכסים</option>
-			</select>
-			<div class="flex-fill"></div>
-			<a class="contact" href="/contact">פרסום ועדכון עסק</a>
+		<div class="row">
+			<div class="filter-container col-xs-12">
+				<select>
+					<option>בחר תת קטגוריה</option>
+					<option>בגדי ילדים</option>
+					<option>בגדי גברים</option>
+					<option>בגדי נשים</option>
+				</select>		
+				<select>
+					<option>בחר עיר</option>
+					<option>חיפה</option>
+					<option>צפת</option>
+					<option>רכסים</option>
+				</select>
+				<div class="flex-fill"></div>
+				<a class="contact" href="/contact">פרסום ועדכון עסק</a>
+			</div>
 		</div>
 		<div class="row">
 		<!-- BEGIN posts -->
