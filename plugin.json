@@ -1,8 +1,8 @@
 {
-	"id": "nodebb-widget-essentials",
-	"name": "NodeBB Essential Widgets",
+	"id": "nodebb-widget-forum-tzafon",
+	"name": "NodeBB Forum Tzafon Widgets",
 	"description": "Several basic widgets bundled together in one package including 'HTML', 'Markdown'",
-	"url": "https://github.com/psychobunny/nodebb-widget-essentials",
+	"url": "https://github.com/DasiRozenberg/nodebb-widget-forum-tzafon",
 	"library": "./library.js",
 	"hooks": [
 		{
@@ -12,58 +12,7 @@
 			"hook": "filter:widgets.getWidgets", "method": "defineWidgets"
 		},
 		{
-			"hook": "filter:widget.render:text", "method": "renderTextWidget"
-		},
-		{
-			"hook": "filter:widget.render:html", "method": "renderHTMLWidget"
-		},
-		{
-			"hook": "filter:widget.render:onlineusers", "method": "renderOnlineUsersWidget"
-		},
-		{
-			"hook": "filter:widget.render:activeusers", "method": "renderActiveUsersWidget"
-		},
-		{
-			"hook": "filter:widget.render:latestusers", "method": "renderLatestUsersWidget"
-		},
-		{
-			"hook": "filter:widget.render:moderators", "method": "renderModeratorsWidget"
-		},
-		{
-			"hook": "filter:widget.render:forumstats", "method": "renderForumStatsWidget"
-		},
-		{
-			"hook": "filter:widget.render:recentposts", "method": "renderRecentPostsWidget"
-		},
-		{
-			"hook": "filter:widget.render:recenttopics", "method": "renderRecentTopicsWidget"
-		},
-		{
-			"hook": "filter:widget.render:recentview", "method": "renderRecentViewWidget"
-		},
-		{
-			"hook": "filter:widget.render:categories", "method": "renderCategories"
-		},
-		{
-			"hook": "filter:widget.render:populartags", "method": "renderPopularTags"
-		},
-		{
-			"hook": "filter:widget.render:populartopics", "method": "renderPopularTopics"
-		},
-		{
-			"hook": "filter:widget.render:toptopics", "method": "renderTopTopics"
-		},
-		{
-			"hook": "filter:widget.render:newgroups", "method": "renderNewGroups"
-		},
-		{
-			"hook": "filter:widget.render:mygroups", "method": "renderMyGroups"
-		},
-		{
-			"hook": "filter:widget.render:groupposts", "method": "renderGroupPosts"
-		},
-		{
-			"hook": "filter:widget.render:suggestedtopics", "method": "renderSuggestedTopics"
+			"hook": "filter:widget.render:business", "method": "renderBusinessData"
 		}
 	],
 	"templates": "./public/templates",

@@ -23,6 +23,35 @@ Widget.init = async function (params) {
 	app = params.app;
 };
 
+Widget.renderBusinessData = async function (widget) {
+	let cid;
+
+	if (widget.data.cid) {
+		cid = widget.data.cid;
+	} else if (widget.templateData.template.category) {
+		cid = widget.templateData.cid;
+	} else if (widget.templateData.template.topic && widget.templateData.category) {
+		cid = widget.templateData.category.cid;
+	}
+	const numPosts = widget.data.numPosts || 1000;
+	let postsData;
+	if (cid) {
+		postsData = await categories.getRecentReplies(cid, widget.uid, numPosts);
+	} else {
+		postsData = await posts.getRecentPosts(widget.uid, 0, Math.max(0, numPosts - 1), 'alltime');
+	}
+	const data = {
+		posts: postsData,
+		numPosts: numPosts,
+		cid: cid,
+		relative_path: nconf.get('relative_path'),
+	};
+	widget.html = await app.renderAsync('widgets/business', data);
+	return widget;
+
+};
+
+
 Widget.renderHTMLWidget = async function (widget) {
 	if (!isVisibleInCategory(widget)) {
 		return null;
@@ -60,7 +89,7 @@ function isVisibleInCategory(widget) {
 Widget.renderRecentViewWidget = async function (widget) {
 	const data = await topics.getLatestTopics({
 		uid:
-		widget.uid,
+			widget.uid,
 		start: 0,
 		stop: 19,
 		term: 'month',
@@ -332,107 +361,113 @@ Widget.renderSuggestedTopics = async function (widget) {
 Widget.defineWidgets = async function (widgets) {
 	const widgetData = [
 		{
-			widget: 'html',
-			name: 'HTML',
-			description: 'Any text, html, or embedded script.',
-			content: 'admin/html',
+			widget: 'business',
+			name: 'Business',
+			description: 'Business Data',
+			content: 'admin/business',
 		},
-		{
-			widget: 'text',
-			name: 'Text',
-			description: 'Text, optionally parsed as a post.',
-			content: 'admin/text',
-		},
-		{
-			widget: 'onlineusers',
-			name: 'Online Users',
-			description: 'List of online users',
-			content: 'admin/onlineusers',
-		},
-		{
-			widget: 'activeusers',
-			name: 'Active Users',
-			description: 'List of active users in a category/topic',
-			content: 'admin/activeusers',
-		},
-		{
-			widget: 'latestusers',
-			name: 'Latest Users',
-			description: 'List of latest registered users.',
-			content: 'admin/latestusers',
-		},
-		{
-			widget: 'moderators',
-			name: 'Moderators',
-			description: 'List of moderators in a category.',
-			content: 'admin/categorywidget',
-		},
-		{
-			widget: 'forumstats',
-			name: 'Forum Stats',
-			description: 'Lists user, topics, and post count.',
-			content: 'admin/forumstats',
-		},
-		{
-			widget: 'recentposts',
-			name: 'Recent Posts',
-			description: 'Lists the latest posts on your forum.',
-			content: 'admin/recentposts',
-		},
-		{
-			widget: 'recenttopics',
-			name: 'Recent Topics',
-			description: 'Lists the latest topics on your forum.',
-			content: 'admin/recenttopics',
-		},
-		{
-			widget: 'recentview',
-			name: 'Recent View',
-			description: 'Renders the /recent page',
-			content: 'admin/defaultwidget',
-		},
-		{
-			widget: 'categories',
-			name: 'Categories',
-			description: 'Lists the categories on your forum',
-			content: 'admin/categorieswidget',
-		},
-		{
-			widget: 'populartags',
-			name: 'Popular Tags',
-			description: 'Lists popular tags on your forum',
-			content: 'admin/populartags',
-		},
-		{
-			widget: 'populartopics',
-			name: 'Popular Topics',
-			description: 'Lists popular topics on your forum',
-			content: 'admin/populartopics',
-		},
-		{
-			widget: 'toptopics',
-			name: 'Top Topics',
-			description: 'Lists top topics on your forum',
-			content: 'admin/toptopics',
-		},
-		{
-			widget: 'mygroups',
-			name: 'My Groups',
-			description: 'List of groups that you are in',
-			content: 'admin/mygroups',
-		},
-		{
-			widget: 'newgroups',
-			name: 'New Groups',
-			description: 'List of newest groups',
-			content: 'admin/mygroups',
-		},
-		{
-			widget: 'suggestedtopics',
-			name: 'Suggested Topics',
-			description: 'Lists of suggested topics.',
-			content: 'admin/suggestedtopics',
-		},
+		// {
+		// 	widget: 'html',
+		// 	name: 'HTML',
+		// 	description: 'Any text, html, or embedded script.',
+		// 	content: 'admin/html',
+		// },
+		// {
+		// 	widget: 'text',
+		// 	name: 'Text',
+		// 	description: 'Text, optionally parsed as a post.',
+		// 	content: 'admin/text',
+		// },
+		// {
+		// 	widget: 'onlineusers',
+		// 	name: 'Online Users',
+		// 	description: 'List of online users',
+		// 	content: 'admin/onlineusers',
+		// },
+		// {
+		// 	widget: 'activeusers',
+		// 	name: 'Active Users',
+		// 	description: 'List of active users in a category/topic',
+		// 	content: 'admin/activeusers',
+		// },
+		// {
+		// 	widget: 'latestusers',
+		// 	name: 'Latest Users',
+		// 	description: 'List of latest registered users.',
+		// 	content: 'admin/latestusers',
+		// },
+		// {
+		// 	widget: 'moderators',
+		// 	name: 'Moderators',
+		// 	description: 'List of moderators in a category.',
+		// 	content: 'admin/categorywidget',
+		// },
+		// {
+		// 	widget: 'forumstats',
+		// 	name: 'Forum Stats',
+		// 	description: 'Lists user, topics, and post count.',
+		// 	content: 'admin/forumstats',
+		// },
+		// {
+		// 	widget: 'recentposts',
+		// 	name: 'Recent Posts',
+		// 	description: 'Lists the latest posts on your forum.',
+		// 	content: 'admin/recentposts',
+		// },
+		// {
+		// 	widget: 'recenttopics',
+		// 	name: 'Recent Topics',
+		// 	description: 'Lists the latest topics on your forum.',
+		// 	content: 'admin/recenttopics',
+		// },
+		// {
+		// 	widget: 'recentview',
+		// 	name: 'Recent View',
+		// 	description: 'Renders the /recent page',
+		// 	content: 'admin/defaultwidget',
+		// },
+		// {
+		// 	widget: 'categories',
+		// 	name: 'Categories',
+		// 	description: 'Lists the categories on your forum',
+		// 	content: 'admin/categorieswidget',
+		// },
+		// {
+		// 	widget: 'populartags',
+		// 	name: 'Popular Tags',
+		// 	description: 'Lists popular tags on your forum',
+		// 	content: 'admin/populartags',
+		// },
+		// {
+		// 	widget: 'populartopics',
+		// 	name: 'Popular Topics',
+		// 	description: 'Lists popular topics on your forum',
+		// 	content: 'admin/populartopics',
+		// },
+		// {
+		// 	widget: 'toptopics',
+		// 	name: 'Top Topics',
+		// 	description: 'Lists top topics on your forum',
+		// 	content: 'admin/toptopics',
+		// },
+		// {
+		// 	widget: 'mygroups',
+		// 	name: 'My Groups',
+		// 	description: 'List of groups that you are in',
+		// 	content: 'admin/mygroups',
+		// },
+		// {
+		// 	widget: 'newgroups',
+		// 	name: 'New Groups',
+		// 	description: 'List of newest groups',
+		// 	content: 'admin/mygroups',
+		// },
+		// {
+		// 	widget: 'suggestedtopics',
+		// 	name: 'Suggested Topics',
+		// 	description: 'Lists of suggested topics.',
+		// 	content: 'admin/suggestedtopics',
+		// },
 	];
 
 	await Promise.all(widgetData.map(async function (widget) {
@@ -440,20 +475,20 @@ Widget.defineWidgets = async function (widgets) {
 	}));
 
 	widgets = widgets.concat(widgetData);
-	const groupNames = await db.getSortedSetRevRange('groups:visible:createtime', 0, -1);
-	let groupsData = await groups.getGroupsData(groupNames);
-	groupsData = groupsData.filter(Boolean);
-	groupsData.forEach(function (group) {
-		group.name = validator.escape(String(group.name));
-	});
+	// const groupNames = await db.getSortedSetRevRange('groups:visible:createtime', 0, -1);
+	// let groupsData = await groups.getGroupsData(groupNames);
+	// groupsData = groupsData.filter(Boolean);
+	// groupsData.forEach(function (group) {
+	// 	group.name = validator.escape(String(group.name));
+	// });
 
-	const html = await app.renderAsync('admin/groupposts', { groups: groupsData });
-	widgets.push({
-		widget: 'groupposts',
-		name: 'Group Posts',
-		description: 'Posts made my members of a group',
-		content: html,
-	});
+	// const html = await app.renderAsync('admin/groupposts', { groups: groupsData });
+	// widgets.push({
+	// 	widget: 'groupposts',
+	// 	name: 'Group Posts',
+	// 	description: 'Posts made my members of a group',
+	// 	content: html,
+	// });
 
 	return widgets;
 };
