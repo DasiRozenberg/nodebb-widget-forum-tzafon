@@ -59,7 +59,7 @@
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
 			});
-			$('.popup-close span', html).click(function (e){
+			$('.popup-close span').click(function (e){
 				$(this).parents('.popup').hide();
 			});
 		}

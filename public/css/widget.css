@@ -111,6 +111,7 @@
 .business .item {
     box-shadow: 0 0 6px 0px black;
     margin: 10px;
+    height: 170px;
 }
 
 .business .item .first-hr {
@@ -148,13 +149,24 @@
 
 .business .item .popup-close {
     text-align: left;
+    padding: 17px 0 0 20px;
+}
+
+.business .item .popup-close span {
+    cursor: pointer;
 }
 
 .business .item .popup-header {
     border-bottom: 2px dashed #1D497B;
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 .business .item .popup-body {
     padding: 20px
+}
+
+.business .item .popup-body .notes {
+    color: blue;
+    font-weight: bold;
+    padding-top: 20px;
 }
