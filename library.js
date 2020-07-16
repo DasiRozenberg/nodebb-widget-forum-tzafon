@@ -47,6 +47,7 @@ Widget.renderBusinessData = async function (widget) {
 		relative_path: nconf.get('relative_path'),
 	};
 	widget.html = await app.renderAsync('widgets/business', data);
+	widget.html += '<pre>'+JSON.stringify(data)+'</pre>'
 	return widget;
 
 };
