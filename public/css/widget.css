@@ -162,11 +162,23 @@
 }
 
 .business .item .popup-body {
-    padding: 20px
+    padding: 20px;
+    line-height: 1.75em;
+}
+
+.business .item .popup-body .fa {
+    padding: 5px;
+    background: #F6A124;
+    border-radius: 50%;
+    width: calc(1em + 10px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
 }
 
 .business .item .popup-body .notes {
-    color: blue;
+    color: #1D497B;
     font-weight: bold;
     padding-top: 20px;
 }
