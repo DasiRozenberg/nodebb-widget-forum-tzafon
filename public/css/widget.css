@@ -122,8 +122,17 @@
 
 .business .item .second-hr {
     border: none;
-    margin: 0;
     border-bottom: 2px solid #F6A124;
+    margin: 2px 0 5px;
+}
+
+.business .item .item-body {
+    padding: 5px 0;
+    width: 1em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
 }
 
 .business .item .popup {
