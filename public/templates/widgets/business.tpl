@@ -3,13 +3,13 @@
 		<div class="row">
 			<div class="filter-container col-xs-12">
 				<select id="subcategory">
-					<option>בחר תת קטגוריה</option>
+					<option value="">בחר תת קטגוריה</option>
 					<option>בגדי ילדים</option>
 					<option>בגדי גברים</option>
 					<option>בגדי נשים</option>
 				</select>		
 				<select id="city">
-					<option>בחר עיר</option>
+					<option value="">בחר עיר</option>
 					<option>חיפה</option>
 					<option>צפת</option>
 					<option>רכסים</option>
