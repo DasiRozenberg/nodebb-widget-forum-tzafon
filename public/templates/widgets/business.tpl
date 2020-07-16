@@ -1,18 +1,22 @@
-<div class="recent-replies">
-	<div id="business" data-numposts="{numPosts}" data-cid="{cid}">
-	<!-- BEGIN posts -->
-	<div data-pid="{posts.pid}" class="clearfix widget-posts">
-		<!-- BEGIN posts.data -->
-			<div>{posts.data}</div>
-		<!-- END posts.data -->
-		<div class="header">
-			<img src="{posts.data[1]}"/>
+<div class="business">
+	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
+		<div class="row">
+		<!-- BEGIN posts -->
+			<div class="item col-sm-3">
+				<div data-pid="{posts.pid}" class="clearfix widget-posts">
+				<!-- BEGIN posts.data -->
+					<div>{posts.data}</div>
+				<!-- END posts.data -->
+				<div class="header">
+					<img src="{posts.data.1}"/>
+				</div>
+				<div class="body">
+					<i class="fa fa-list"></i>{posts.data.2}<br />
+					<i class="fa fa-list"></i>{posts.data.3}<br />
+				</div>
+			</div>
+		<!-- END posts -->
 		</div>
-		<div class="body">
-			<i class="fa fa-list"></i>{posts.data[2]}<br />
-			<i class="fa fa-list"></i>{posts.data[3]}<br />
-		</div>
-	<!-- END posts -->
 	</div>
 </div>
 
