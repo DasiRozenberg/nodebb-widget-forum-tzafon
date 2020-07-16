@@ -85,7 +85,7 @@
 			$('.filter-container select', html).change(function (e){
 				var subcategory = $('#subcategory').val();
 				var city = $('#city').val();
-				items = $(".item");
+				var items = $(".item");
 				if (subcategory) {
 					items = items.filter(":contains('" + subcategory + "')");
 				}
