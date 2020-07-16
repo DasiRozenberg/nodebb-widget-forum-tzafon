@@ -14,7 +14,7 @@
 				<option>רכסים</option>
 			</select>
 			<div class="flex-fill"></div>
-			<button class="contact">פרסום ועדכון עסק</button>
+			<a class="contact" href="/contact">פרסום ועדכון עסק</a>
 		</div>
 		<div class="row">
 		<!-- BEGIN posts -->
