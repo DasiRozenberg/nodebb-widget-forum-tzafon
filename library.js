@@ -47,8 +47,8 @@ Widget.renderBusinessData = async function(widget) {
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
-    cities = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
-    subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : ''));
+    const cities = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
+    const subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : ''));
 
     const data = {
         posts: postsData,
