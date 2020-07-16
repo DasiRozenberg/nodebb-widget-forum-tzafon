@@ -16,19 +16,19 @@
 						<i class="fa fa-list"></i>{posts.data.4}<br />
 					</div>
 				</div>
-			</div>
-			<div class="popup" style="display:none">
-				<div class="popup-content">
-					<div class="popup-header">
-						{posts.data.0}
-					</div>
-					<div class="popup-body">
-						<i class="fa fa-list"></i>{posts.data.1}<br />
-						<i class="fa fa-list"></i>{posts.data.2}<br />
-						<i class="fa fa-list"></i>{posts.data.3}<br />
-						<i class="fa fa-list"></i>{posts.data.4}<br />
-						<i class="fa fa-list"></i>{posts.data.5}<br />
-						<i class="fa fa-list"></i>{posts.data.6}<br />
+				<div class="popup" style="display:none">
+					<div class="popup-content">
+						<div class="popup-header">
+							{posts.data.0}
+						</div>
+						<div class="popup-body">
+							<i class="fa fa-list"></i>{posts.data.1}<br />
+							<i class="fa fa-list"></i>{posts.data.2}<br />
+							<i class="fa fa-list"></i>{posts.data.3}<br />
+							<i class="fa fa-list"></i>{posts.data.4}<br />
+							<i class="fa fa-list"></i>{posts.data.5}<br />
+							<i class="fa fa-list"></i>{posts.data.6}<br />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 			html.insertAfter($('.category'));
 
 			$('.item', html).click(function (e){
-				$('.popup', this.paretnts('.item')).show();
+				$('.popup', this).show();
 			});
 		}
 	}
