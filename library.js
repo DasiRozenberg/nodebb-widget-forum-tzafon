@@ -37,8 +37,10 @@ Widget.renderBusinessData = async function (widget) {
 	let postsData;
 	if (cid) {
 		postsData = await categories.getRecentReplies(cid, widget.uid, numPosts);
-	} else {
-		postsData = await posts.getRecentPosts(widget.uid, 0, Math.max(0, numPosts - 1), 'alltime');
+		postsData = postsData.map(item => ({
+			...item,
+			data: item.content.split('<br />\n')
+		}));
 	}
 	const data = {
 		posts: postsData,
@@ -47,9 +49,9 @@ Widget.renderBusinessData = async function (widget) {
 		relative_path: nconf.get('relative_path'),
 	};
 	console.log(data);
-	
+
 	widget.html = await app.renderAsync('widgets/business', data);
-	widget.html += '<pre>'+JSON.stringify(data)+'</pre>'
+	widget.html += '<pre>' + JSON.stringify(data) + '</pre>'
 	return widget;
 
 };
