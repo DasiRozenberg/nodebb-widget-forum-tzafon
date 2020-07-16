@@ -108,14 +108,14 @@
     display: none;
 }
 
-.business {}
-
-.business .businessContainer {}
-
 .business .item .first-hr {
+    border: none;
+    margin: 0;
     border-bottom: 2px solid #1D497B;
 }
 
 .business .item .second-hr {
+    border: none;
+    margin: 0;
     border-bottom: 2px solid #F6A124;
 }
