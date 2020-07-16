@@ -4,14 +4,26 @@
 		<!-- BEGIN posts -->
 			<div class="item col-sm-3">
 				<div data-pid="{posts.pid}" class="clearfix widget-posts">
-					<div class="header">
+					<div class="item-header">
 						{posts.data.0}
 					</div>
-					<div class="body">
+					<hr class="first-hr" />
+					<hr class="second-hr" />
+					<div class="item-body">
 						<i class="fa fa-list"></i>{posts.data.1}<br />
 						<i class="fa fa-list"></i>{posts.data.2}<br />
 						<i class="fa fa-list"></i>{posts.data.3}<br />
 					</div>
+				</div>
+			</div>
+			<div class="popup" style="display:none">
+				<div class="popup-header">
+					{posts.data.0}
+				</div>
+				<div class="popup-body">
+					<i class="fa fa-list"></i>{posts.data.1}<br />
+					<i class="fa fa-list"></i>{posts.data.2}<br />
+					<i class="fa fa-list"></i>{posts.data.3}<br />
 				</div>
 			</div>
 		<!-- END posts -->
@@ -29,9 +41,10 @@
 		processHtml(business);
 
 		function processHtml(html) {
-			$('.item', html).click(function (a,b,c){
-				console.log(a,b,c)
-				alert('check console')
+			$('.item', html).click(function (e){
+				debugger
+				$(e.target)
+				$('.popup', this).show();
 			});
 		}
 	}
