@@ -1,4 +1,4 @@
-<div class="business" data-isadmin="{isadmin}">
+<div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
 	<div class="businessContainer container" data-numposts="{numPosts}" data-cid="{cid}">
 		<div class="row">
 			<div class="filter-container col-xs-12">
@@ -70,7 +70,7 @@
 		function processHtml(html) {
 			var isadmin = business.attr('data-isadmin');
 			if (isadmin === 'true') {
-				$('[component="category"], .subcategory, .clearfix, hr, p', '.category').show();
+				$('.category').show();
 			}
 
 			html.insertAfter($('.category'));
