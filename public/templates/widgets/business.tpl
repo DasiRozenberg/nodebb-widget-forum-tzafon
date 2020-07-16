@@ -85,7 +85,14 @@
 			$('.filter-container select', html).change(function (e){
 				var subcategory = $('#subcategory').val();
 				var city = $('#city').val();
-				debugger
+				items = $(".item");
+				if (subcategory) {
+					items = items.filter(":contains('" + subcategory + "')");
+				}
+				if (city) {
+					items = items.filter(":contains('" + city + "')");
+				}
+				$(".item").not(items).hide();
 			});
 		}
 	}
