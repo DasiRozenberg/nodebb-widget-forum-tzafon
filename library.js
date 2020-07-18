@@ -39,7 +39,7 @@ Widget.renderBusinessData = async function(widget) {
     }
     let postsData;
     if (cid) {
-        postsData = await categories.getRecentReplies(cid, widget.uid, 1000);
+        postsData = await categories.getRecentReplies(cid, 1, 1000);
         postsData = postsData.map(item => ({
             ...item,
             data: item.content.split('<br />\n')
