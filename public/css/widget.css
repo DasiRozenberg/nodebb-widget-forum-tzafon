@@ -86,7 +86,6 @@
     display: flex;
     background: #1D497B;
     padding: .75em;
-    margin: 0 .75em;
 }
 
 .business .filter-container select {

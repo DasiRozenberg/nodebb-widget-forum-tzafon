@@ -1,7 +1,7 @@
 <div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
-	<div class="businessContainer" data-cid="{cid}">
-		<div class="row">
-			<div class="filter-container col-xs-12">
+	<div class="businessContainer row" data-cid="{cid}">
+		<div class="col-xs-12">
+			<div class="filter-container">
 				<select id="subcategory">
 					<option value="">בחר תת קטגוריה</option>
 					<!-- BEGIN subcategories -->
@@ -18,7 +18,7 @@
 				<a class="contact" href="/contact">פרסום ועדכון עסק</a>
 			</div>
 		</div>
-		<div class="row">
+		<div class="col-xs-12">
 		<!-- BEGIN posts -->
 			<div class="item col-sm-3">
 				<div data-pid="{posts.pid}" class="clearfix widget-posts">
@@ -71,7 +71,6 @@
 			var isadmin = business.attr('data-isadmin');
 			if (isadmin === 'true') {
 				$('.category').show();
-				$('pre').show();
 			}
 
 			html.insertAfter($('.category'));
