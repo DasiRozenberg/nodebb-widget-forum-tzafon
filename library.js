@@ -78,10 +78,16 @@ function isVisibleInCategory(widget) {
 
 Widget.defineWidgetAreas = function(areas, callback) {
     areas = areas.concat([{
-        'name': 'Custom HP Content',
-        'template': 'homepage.tpl',
-        'location': 'hp-content'
-    }]);
+            'name': 'Custom HP Content',
+            'template': 'homepage.tpl',
+            'location': 'hp-content'
+        },
+        {
+            'name': 'Custom HP Header',
+            'template': 'homepage.tpl',
+            'location': 'hp-header'
+        }
+    ]);
 
     callback(null, areas);
 };
