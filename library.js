@@ -66,6 +66,23 @@ Widget.renderBusinessData = async function(widget) {
 
 };
 
+Widget.renderRecentViewWidget = async function(widget) {
+    const data = await topics.getLatestTopics({
+        uid: widget.uid,
+        start: 0,
+        stop: 19,
+        term: 'month',
+    });
+    data.relative_path = nconf.get('relative_path');
+    data.loggedIn = !!widget.req.uid;
+    data.config = data.config || {};
+    data.config.relative_path = nconf.get('relative_path');
+    console.log(data);
+    widget.html = await app.renderAsync('widgets/recent', data);
+    widget.html = widget.html.replace(/<ol[\s\S]*?<br \/>/, '').replace('<br>', '');
+    return widget;
+};
+
 function getCidsArray(widget) {
     const cids = widget.data.showCid || '';
     return cids.split(',').map(c => parseInt(c, 10)).filter(Boolean);
@@ -110,11 +127,18 @@ Widget.addListing = function(data, callback) {
 
 Widget.defineWidgets = async function(widgets) {
     const widgetData = [{
-        widget: 'business',
-        name: 'Business',
-        description: 'Business Data',
-        content: 'admin/business',
-    }, ];
+            widget: 'business',
+            name: 'Business',
+            description: 'Business Data',
+            content: 'admin/business',
+        },
+        {
+            widget: 'recentviewtzafon',
+            name: 'Recent View',
+            description: 'Renders the /recent page',
+            content: 'admin/defaultwidget',
+        },
+    ];
 
     await Promise.all(widgetData.map(async function(widget) {
         widget.content = await app.renderAsync(widget.content, {});

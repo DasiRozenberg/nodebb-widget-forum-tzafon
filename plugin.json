@@ -17,9 +17,14 @@
             "method": "renderBusinessData"
         },
         {
+            "hook": "filter:widget.render:recentviewtzafon",
+            "method": "renderRecentViewWidget"
+        },
+        {
             "hook": "filter:widgets.getAreas",
             "method": "defineWidgetAreas"
-        }, {
+        },
+        {
             "hook": "action:homepage.get:customHP",
             "method": "serveHomepage"
         },
