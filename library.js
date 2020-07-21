@@ -197,7 +197,6 @@ Widget.renderRecentViewWidget = async function(widget) {
     }
 
     const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 4);
-    console.log('topic keys', Object.keys(topicsData));
 
     const data = {
         topics: topicsData.topics,
@@ -219,6 +218,8 @@ function getCidsArray(widget) {
 
 function isVisibleInCategory(widget) {
     const cids = getCidsArray(widget);
+    console.log('widget.templateData.template.category', widget.templateData.template.category)
+    console.log('widget.templateData.template.topic', widget.templateData.template.topic)
     return !(cids.length && (widget.templateData.template.category || widget.templateData.template.topic) && !cids.includes(parseInt(widget.templateData.cid, 10)));
 }
 
