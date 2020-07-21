@@ -85,6 +85,7 @@ async function postContact(req, res) {
     }
 
     let file = req.file;
+    console.log('file', Object.keys(file))
 
     const fileObj = file ? await upload.uploadFile(req.uid, file) : {};
 
