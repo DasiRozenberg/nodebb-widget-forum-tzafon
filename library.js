@@ -165,7 +165,6 @@ Widget.renderBusinessData = async function(widget) {
         isadmin: isadmin,
         relative_path: nconf.get('relative_path'),
     };
-    console.log(data);
 
     widget.html = await app.renderAsync('widgets/business', data);
 
@@ -184,7 +183,7 @@ Widget.renderRecentViewWidget = async function(widget) {
     data.loggedIn = !!widget.req.uid;
     data.config = data.config || {};
     data.config.relative_path = nconf.get('relative_path');
-    console.log(data);
+
     widget.html = await app.renderAsync('widgets/recent', data);
     widget.html = widget.html.replace(/<ol[\s\S]*?<br \/>/, '').replace('<br>', '');
     return widget;
