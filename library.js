@@ -77,6 +77,7 @@ function renderContact(req, res) {
 }
 
 async function postContact(req, res) {
+    console.log('req.body', req.body)
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
