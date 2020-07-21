@@ -127,6 +127,10 @@
     padding: .5em 2em;
 }
 
-.vresize {
+.page-contact .vresize {
     resize: vertical;
+}
+
+.page-contact h4 {
+    color: #1D497B;
 }
