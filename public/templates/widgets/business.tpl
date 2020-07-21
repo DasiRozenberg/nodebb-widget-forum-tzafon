@@ -99,11 +99,12 @@
 
 		function processHtml(html) {
 			var isadmin = business.attr('data-isadmin');
+			var category = $('.container>.row>.category');
 			if (isadmin === 'true') {
-				$('.category').show();
+				category.show();
 			}
 
-			html.insertAfter($('.category'));
+			html.insertAfter(category);
 
 			$('.item', html).click(function (e){
 				$('.popup', this).show();

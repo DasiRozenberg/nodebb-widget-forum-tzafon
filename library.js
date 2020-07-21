@@ -86,7 +86,7 @@ async function postContact(req, res) {
     }
 
     let file = req.file;
-    console.log('file', Object.keys(file))
+    console.log('file', JSON.stringify(file, null, '\t'))
 
     const fileObj = file ? await uploadController.uploadFile(req.uid, file) : {};
 
@@ -220,8 +220,6 @@ function getCidsArray(widget) {
 
 function isVisibleInCategory(widget) {
     const cids = getCidsArray(widget);
-    console.log('widget.templateData.template.category', widget.templateData.template.category)
-    console.log('widget.templateData.template.topic', widget.templateData.template.topic)
     return !(cids.length) || ((widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(parseInt(widget.templateData.cid, 10)));
 }
 
