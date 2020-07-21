@@ -19,10 +19,117 @@ let app;
 
 const Widget = module.exports;
 
-Widget.init = async function(params) {
+Widget.init = async function(params, callback) {
     app = params.app;
-};
+    let router = params.router;
+    let middleware = params.middleware;
 
+    router.get('/contact', middleware.buildHeader, renderContact);
+    router.get('/api/contact', renderContact);
+    router.post('/contact', postContact);
+
+    // admin panel
+    router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
+    router.get('/api/admin/plugins/contact-page', renderAdmin);
+
+    meta.settings.get('contactpage', (err, options) => {
+        if (err) {
+            winston.warn(`[plugin/contactpage] Unable to retrieve settings, will keep defaults: ${err.message}`);
+        } else {
+            // load setting from config if exist
+            for (let settingName of["reCaptchaPubKey", "reCaptchaPrivKey", "contactEmail", "messageFooter"]) {
+                if (options.hasOwnProperty(settingName)) {
+                    ContactPage[settingName] = options[settingName];
+                }
+            }
+        }
+    });
+
+    callback();
+};
+Widget.getConfig = function(config, callback) {
+    config.contactpage = {
+        reCaptchaPubKey: ContactPage.reCaptchaPubKey
+    };
+    callback(null, config);
+}
+widget.addToAdminNav = function(header, callback) {
+    header.plugins.push({
+        route: '/plugins/contact-page',
+        name: 'Contact page',
+    });
+
+    callback(null, header);
+}
+Widget.modifyEmail = function(mailData, callback) {
+    if (mailData && mailData.template == "contact-page") {
+        mailData = modifyFrom(mailData);
+    }
+    callback(null, mailData);
+}
+
+function renderContact(req, res) {
+    return res.render('contact', {
+        recaptcha: ContactPage.reCaptchaPubKey,
+        title: "Contact"
+    });
+}
+
+function postContact(req, res) {
+    if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
+        return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
+    }
+    if (ContactPage.reCaptchaPubKey) {
+        if (!req.body['g-recaptcha-response']) {
+            return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete.recaptcha]]' });
+        }
+        simpleRecaptcha(ContactPage.reCaptchaPrivKey, req.ip, req.body['g-recaptcha-response'], (err) => {
+            if (err) {
+                return res.status(400).json({ success: false, msg: '[[contactpage:error.invalid.recaptcha]]' });
+            } else {
+                sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, res);
+            }
+        });
+    } else {
+        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, res);
+    }
+}
+
+function sendMail(replyTo, name, subject, message, res) {
+    let mailParams = {
+        content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
+        footer_text: ContactPage.messageFooter,
+        from_name: name,
+        subject: subject,
+        template: 'contact-page',
+        uid: 0,
+        replyTo,
+    }
+
+    mailParams = Object.assign({}, emailer._defaultPayload, mailParams);
+
+    emailer.sendToEmail('contact-page', ContactPage.contactEmail, undefined, mailParams, (error) => {
+        if (error) {
+            winston.error("[plugin/contactpage] Failed to send mail:" + error);
+            return res.status(500).json({ success: false, message: '[[contactpage:error.mail]]' });
+        }
+        return res.json({ success: true });
+    });
+}
+
+function modifyFrom(mailData) {
+    mailData.from_name = mailData._raw.from_name;
+    mailData.replyTo = mailData._raw.replyTo;
+    return mailData;
+}
+
+function renderAdmin(req, res) {
+    return res.render('admin/plugins/contact-page');
+}
+
+
+
+//widgets
 Widget.renderBusinessData = async function(widget) {
     if (!isVisibleInCategory(widget)) {
         return null;
@@ -93,6 +200,31 @@ function isVisibleInCategory(widget) {
     return !(cids.length && (widget.templateData.template.category || widget.templateData.template.topic) && !cids.includes(parseInt(widget.templateData.cid, 10)));
 }
 
+Widget.defineWidgets = async function(widgets) {
+    const widgetData = [{
+            widget: 'business',
+            name: 'Business',
+            description: 'Business Data',
+            content: 'admin/business',
+        },
+        {
+            widget: 'recentviewtzafon',
+            name: 'Recent View Tzafon',
+            description: 'Renders the /recent page',
+            content: 'admin/defaultwidget',
+        },
+    ];
+
+    await Promise.all(widgetData.map(async function(widget) {
+        widget.content = await app.renderAsync(widget.content, {});
+    }));
+
+    widgets = widgets.concat(widgetData);
+
+    return widgets;
+};
+
+// home page
 Widget.defineWidgetAreas = function(areas, callback) {
     areas = areas.concat([{
             'name': 'Custom HP Content',
@@ -123,28 +255,4 @@ Widget.addListing = function(data, callback) {
         name: 'Custom Homepage'
     });
     callback(null, data);
-};
-
-Widget.defineWidgets = async function(widgets) {
-    const widgetData = [{
-            widget: 'business',
-            name: 'Business',
-            description: 'Business Data',
-            content: 'admin/business',
-        },
-        {
-            widget: 'recentviewtzafon',
-            name: 'Recent View Tzafon',
-            description: 'Renders the /recent page',
-            content: 'admin/defaultwidget',
-        },
-    ];
-
-    await Promise.all(widgetData.map(async function(widget) {
-        widget.content = await app.renderAsync(widget.content, {});
-    }));
-
-    widgets = widgets.concat(widgetData);
-
-    return widgets;
 };

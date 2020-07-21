@@ -119,3 +119,7 @@
     background: white;
     padding: .5em 2em;
 }
+
+.vresize {
+    resize: vertical;
+}

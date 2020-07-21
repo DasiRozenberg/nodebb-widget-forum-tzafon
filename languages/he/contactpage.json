@@ -1,0 +1,17 @@
+{
+    "contact": "צור קשר",
+    "form.email": "כתובת מייל",
+    "form.name": "שם",
+    "form.subject": "נושא",
+    "form.message": "תוכן ההודעה",
+    "form.captcha": "אני לא רובוט",
+    "btn.send": "שלח",
+    "contact-error": "יצירת קשר נכשלה",
+    "invalid.email": "כתובת מייל לא תקינה",
+    "error.mail": "השרת נכשל בשליחת ההודעה. אנא נסה שוב",
+    "error.incomplete": "יש למלא את כל השדות",
+    "error.incomplete.recaptcha": "אנא אשר שאינך רובוט!",
+    "error.invalid.recaptcha": "הצהרת אני לא רובוט לא תקינה",
+    "send.success": "הודעתך נשלחה ותענה בהקדם.",
+    "email.header": "%1 שלח לך את ההודעה הבאה:"
+}

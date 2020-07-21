@@ -20,6 +20,7 @@
             "hook": "filter:widget.render:recentviewtzafon",
             "method": "renderRecentViewWidget"
         },
+
         {
             "hook": "filter:widgets.getAreas",
             "method": "defineWidgetAreas"
@@ -31,10 +32,30 @@
         {
             "hook": "filter:homepage.get",
             "method": "addListing"
+        },
+
+        {
+            "hook": "filter:admin.header.build",
+            "method": "addToAdminNav"
+        },
+        {
+            "hook": "filter:config.get",
+            "method": "getConfig"
+        },
+        {
+            "hook": "filter:email.modify",
+            "method": "modifyEmail"
         }
     ],
     "templates": "./public/templates",
     "css": [
         "public/css/widget.css"
-    ]
+    ],
+    "scripts": [
+        "public/js/contact.js"
+    ],
+    "acpScripts": [
+        "public/js/admin.js"
+    ],
+    "languages": "languages"
 }
