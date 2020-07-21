@@ -30,8 +30,8 @@
 						<hr class="second-hr" />
 						<div class="item-body">
 							<i class="fa fa-th-large"></i>
-							{posts.data.3}
-							<!-- IF !posts.data.3 --><i class="no-data">אין נתונים</i><!-- END -->
+							{posts.data.2}
+							<!-- IF !posts.data.2 --><i class="no-data">אין נתונים</i><!-- END -->
 							<br />
 
 							<i class="fa fa-map-marker"></i>
@@ -55,12 +55,12 @@
 							</div>
 							<div class="popup-body">
 								<i class="fa fa-th-large"></i>
-								{posts.data.3}
-								<!-- IF !posts.data.3 --><i class="no-data">אין נתונים</i><!-- END -->
+								{posts.data.2}
+								<!-- IF !posts.data.2 --><i class="no-data">אין נתונים</i><!-- END -->
 								<br />
 								
 								<i class="fa fa-map-marker"></i>
-								{posts.data.5}
+								{posts.data.4}, {posts.data.5}
 								<!-- IF !posts.data.5 --><i class="no-data">אין נתונים</i><!-- END -->
 								<br />
 								

@@ -88,7 +88,7 @@ async function postContact(req, res) {
     let file = req.file;
     console.log('file', JSON.stringify(file, null, '\t'))
 
-    const fileObj = file ? await uploadController.uploadFile(req.uid, file) : {};
+    const fileObj = false ? await uploadController.uploadFile(req.uid, file) : {};
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
