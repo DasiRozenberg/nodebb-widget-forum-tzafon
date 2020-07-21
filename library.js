@@ -1,6 +1,7 @@
 'use strict';
 
-var multer = require('multer')
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/files/' });
 
 const nconf = require.main.require('nconf');
 const validator = require.main.require('validator');
@@ -17,7 +18,7 @@ const groups = require.main.require('./src/groups');
 const utils = require.main.require('./src/utils');
 const emailer = require.main.require('./src/emailer');
 const meta = require.main.require('./src/meta');
-const upload = require.main.require('./src/controllers/uploads');
+const uploadController = require.main.require('./src/controllers/uploads');
 
 let app;
 
@@ -32,7 +33,7 @@ Widget.init = async function(params) {
 
     router.get('/contact', middleware.buildHeader, renderContact);
     router.get('/api/contact', renderContact);
-    router.post('/contact', multer().single('file'), postContact);
+    router.post('/contact', upload.single('file'), postContact);
 
     // admin panel
     router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
@@ -87,7 +88,7 @@ async function postContact(req, res) {
     let file = req.file;
     console.log('file', Object.keys(file))
 
-    const fileObj = file ? await upload.uploadFile(req.uid, file) : {};
+    const fileObj = file ? await uploadController.uploadFile(req.uid, file) : {};
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
