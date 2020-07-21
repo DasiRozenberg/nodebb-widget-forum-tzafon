@@ -19,6 +19,8 @@ let app;
 
 const Widget = module.exports;
 
+//contact page
+ContactPage = {};
 Widget.init = async function(params) {
     app = params.app;
     let router = params.router;

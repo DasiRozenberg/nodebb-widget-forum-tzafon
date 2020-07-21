@@ -30,6 +30,9 @@
 						<hr class="second-hr" />
 						<div class="item-body">
 							<i class="fa fa-th-large"></i>{posts.data.2}<br />
+							<!-- IF !not_test -->
+							This is not a test!
+							<!-- END -->
 							<i class="fa fa-map-marker"></i>{posts.data.4}<br />
 							<i class="fa fa-list"></i>{posts.data.5}<br />
 						</div>
