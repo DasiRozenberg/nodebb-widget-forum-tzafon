@@ -30,6 +30,12 @@
     margin: 2px 0 5px;
 }
 
+.business .item .item-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .business .item .item-body .fa {
     padding: 5px 0;
     width: 1em;
