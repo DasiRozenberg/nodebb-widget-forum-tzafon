@@ -78,6 +78,7 @@ function renderContact(req, res) {
 
 async function postContact(req, res) {
     console.log('object keys', Object.keys(req))
+    console.log('body keys', Object.keys(req.body))
 
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
