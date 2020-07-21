@@ -15,7 +15,7 @@
 					<!-- END cities -->
 				</select>
 				<div class="flex-fill"></div>
-				<a class="contact" href="/contact">פרסום ועדכון עסק</a>
+				<a class="contact" href="/contact?mode=ad">פרסום ועדכון עסק</a>
 			</div>
 		</div>
 		<div class="col-xs-12">

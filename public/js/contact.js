@@ -7,12 +7,10 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
 
         var contactMsgTemplates = {
             'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\nצרוף קובץ:\n",
-            'update-ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\nצרוף קובץ:\n",
 
         };
         var contactSubjectTemplates = {
-            'ad': "פרסום עסק",
-            'update-ad': "שדרוג עסק",
+            'ad': "פרסום/ שדרוג עסק",
         };
         var mode = location.href.split('mode=')[1];
         $('#message').val(contactMsgTemplates[mode]);
