@@ -19,7 +19,7 @@ let app;
 
 const Widget = module.exports;
 
-Widget.init = async function(params, callback) {
+Widget.init = async function(params) {
     app = params.app;
     let router = params.router;
     let middleware = params.middleware;
@@ -44,8 +44,6 @@ Widget.init = async function(params, callback) {
             }
         }
     });
-
-    callback();
 };
 Widget.getConfig = function(config, callback) {
     config.contactpage = {
