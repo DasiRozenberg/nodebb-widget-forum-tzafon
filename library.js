@@ -222,7 +222,7 @@ function isVisibleInCategory(widget) {
     const cids = getCidsArray(widget);
     console.log('widget.templateData.template.category', widget.templateData.template.category)
     console.log('widget.templateData.template.topic', widget.templateData.template.topic)
-    return (!(cids.length) && (widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(parseInt(widget.templateData.cid, 10)));
+    return !(cids.length) || ((widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(parseInt(widget.templateData.cid, 10)));
 }
 
 Widget.defineWidgets = async function(widgets) {
