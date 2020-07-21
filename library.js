@@ -139,7 +139,7 @@ function modifyFrom(mailData) {
 }
 
 function renderAdmin(req, res) {
-    return res.render('admin/plugins/contact-page');
+    return res.render('admin/contact-page');
 }
 
 
