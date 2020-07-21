@@ -196,7 +196,7 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = widget.templateData.category.cid;
     }
 
-    const topicsData = await topics.getRecentTopics(cid, uid, 0, 4);
+    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 4);
     console.log('topic keys', Object.keys(topicsData));
 
     const data = {

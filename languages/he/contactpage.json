@@ -13,6 +13,7 @@
     "error.incomplete": "יש למלא את כל השדות",
     "error.incomplete.recaptcha": "אנא אשר שאינך רובוט!",
     "error.invalid.recaptcha": "הצהרת אני לא רובוט לא תקינה",
+    "error.unknown": "שגיאה לא ידועה",
     "send.success": "הודעתך נשלחה ותענה בהקדם.",
     "email.header": "%1 שלח לך את ההודעה הבאה:"
 }

@@ -41,7 +41,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
                     if (resp && (resp.status == 400 || resp.status == 500) && resp.responseJSON) {
                         showError(resp.responseJSON.msg);
                     } else {
-                        showError('[[contactpage:error.unknow]]');
+                        showError('[[contactpage:error.unknown]]');
                     }
                 }
             });

@@ -13,6 +13,7 @@
     "error.incomplete": "Please fill all fields",
     "error.incomplete.recaptcha": "Please fill the captcha!",
     "error.invalid.recaptcha": "Captcha is invalid!",
+    "error.unknown": "Unknown Error",
     "send.success": "Your message has been sent. We will respond quickly.",
     "email.header": "%1 sent the following message:"
 }
