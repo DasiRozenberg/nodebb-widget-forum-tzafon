@@ -53,7 +53,7 @@ Widget.getConfig = function(config, callback) {
     };
     callback(null, config);
 }
-widget.addToAdminNav = function(header, callback) {
+Widget.addToAdminNav = function(header, callback) {
     header.plugins.push({
         route: '/plugins/contact-page',
         name: 'Contact page',
