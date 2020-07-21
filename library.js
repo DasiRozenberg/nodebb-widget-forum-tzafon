@@ -134,7 +134,7 @@ Widget.defineWidgets = async function(widgets) {
         },
         {
             widget: 'recentviewtzafon',
-            name: 'Recent View',
+            name: 'Recent View Tzafon',
             description: 'Renders the /recent page',
             content: 'admin/defaultwidget',
         },

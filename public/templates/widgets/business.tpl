@@ -20,35 +20,37 @@
 		</div>
 		<div class="col-xs-12">
 		<!-- BEGIN posts -->
-			<div class="item col-sm-3">
-				<div data-pid="{posts.pid}" class="clearfix widget-posts">
-					<div class="item-header">
-						{posts.data.1}
-					</div>
-					<hr class="first-hr" />
-					<hr class="second-hr" />
-					<div class="item-body">
-						<i class="fa fa-th-large"></i>{posts.data.2}<br />
-						<i class="fa fa-map-marker"></i>{posts.data.4}<br />
-						<i class="fa fa-list"></i>{posts.data.5}<br />
-					</div>
-				</div>
-				<div class="popup" style="display:none">
-					<div class="popup-content">
-						<div class="popup-close">
-							<span>X</span>
-						</div>
-						<div class="popup-header">
+			<div class="col-sm-3">
+				<div class="item">
+					<div data-pid="{posts.pid}" class="clearfix widget-posts">
+						<div class="item-header">
 							{posts.data.1}
 						</div>
-						<div class="popup-body">
+						<hr class="first-hr" />
+						<hr class="second-hr" />
+						<div class="item-body">
 							<i class="fa fa-th-large"></i>{posts.data.2}<br />
 							<i class="fa fa-map-marker"></i>{posts.data.4}<br />
-							<i class="fa fa-clock-o"></i>{posts.data.5}<br />
-							<i class="fa fa-phone"></i>{posts.data.6}<br />
-							
-							<div class="notes">הערות</div>
-							{posts.data.7}<br />
+							<i class="fa fa-list"></i>{posts.data.5}<br />
+						</div>
+					</div>
+					<div class="popup" style="display:none">
+						<div class="popup-content">
+							<div class="popup-close">
+								<span>X</span>
+							</div>
+							<div class="popup-header">
+								{posts.data.1}
+							</div>
+							<div class="popup-body">
+								<i class="fa fa-th-large"></i>{posts.data.2}<br />
+								<i class="fa fa-map-marker"></i>{posts.data.4}<br />
+								<i class="fa fa-clock-o"></i>{posts.data.5}<br />
+								<i class="fa fa-phone"></i>{posts.data.6}<br />
+								
+								<div class="notes">הערות</div>
+								{posts.data.7}<br />
+							</div>
 						</div>
 					</div>
 				</div>
