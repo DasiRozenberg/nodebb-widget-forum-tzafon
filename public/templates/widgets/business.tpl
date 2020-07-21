@@ -29,12 +29,20 @@
 						<hr class="first-hr" />
 						<hr class="second-hr" />
 						<div class="item-body">
-							<i class="fa fa-th-large"></i>{posts.data.2}<br />
-							<!-- IF !not_test -->
-							This is not a test!
-							<!-- END -->
-							<i class="fa fa-map-marker"></i>{posts.data.4}<br />
-							<i class="fa fa-list"></i>{posts.data.5}<br />
+							<i class="fa fa-th-large"></i>
+							{posts.data.2}
+							<!-- IF !posts.data.2 --><i>אין נתונים</i><!-- END -->
+							<br />
+
+							<i class="fa fa-map-marker"></i>
+							{posts.data.4}
+							<!-- IF !posts.data.4 --><i>אין נתונים</i><!-- END -->
+							<br />
+
+							<i class="fa fa-list"></i>
+							{posts.data.5}
+							<!-- IF !posts.data.5 --><i>אין נתונים</i><!-- END -->
+							<br />
 						</div>
 					</div>
 					<div class="popup" style="display:none">
@@ -46,13 +54,30 @@
 								{posts.data.1}
 							</div>
 							<div class="popup-body">
-								<i class="fa fa-th-large"></i>{posts.data.2}<br />
-								<i class="fa fa-map-marker"></i>{posts.data.4}<br />
-								<i class="fa fa-clock-o"></i>{posts.data.5}<br />
-								<i class="fa fa-phone"></i>{posts.data.6}<br />
+								<i class="fa fa-th-large"></i>
+								{posts.data.2}
+								<!-- IF !posts.data.2 --><i>אין נתונים</i><!-- END -->
+								<br />
+								
+								<i class="fa fa-map-marker"></i>
+								{posts.data.4}
+								<!-- IF !posts.data.4 --><i>אין נתונים</i><!-- END -->
+								<br />
+								
+								<i class="fa fa-clock-o"></i>
+								{posts.data.5}
+								<!-- IF !posts.data.5 --><i>אין נתונים</i><!-- END -->
+								<br />
+
+								<i class="fa fa-phone"></i>
+								{posts.data.6}
+								<!-- IF !posts.data.6 --><i>אין נתונים</i><!-- END -->
+								<br />
 								
 								<div class="notes">הערות</div>
-								{posts.data.7}<br />
+								{posts.data.7}
+								<!-- IF !posts.data.7 --><i>אין נתונים</i><!-- END -->
+								<br />
 							</div>
 						</div>
 					</div>

@@ -42,6 +42,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-sm-2" for="file">[[contactpage:form.file]]</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" id="file" name="file"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-sm-2" for="message">[[contactpage:form.message]]</label>
         <div class="col-sm-10">
             <textarea class="form-control vresize" rows="8" id="message" name="message"></textarea>

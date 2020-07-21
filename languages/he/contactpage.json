@@ -4,6 +4,7 @@
     "form.name": "שם",
     "form.subject": "נושא",
     "form.message": "תוכן ההודעה",
+    "form.file": "הוסף קובץ",
     "form.captcha": "אני לא רובוט",
     "btn.send": "שלח",
     "contact-error": "יצירת קשר נכשלה",
