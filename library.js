@@ -14,7 +14,7 @@ const posts = require.main.require('./src/posts');
 const groups = require.main.require('./src/groups');
 const utils = require.main.require('./src/utils');
 const meta = require.main.require('./src/meta');
-const upload = require.main.require('./src/controllers/upload');
+const upload = require.main.require('./src/controllers/uploads');
 
 let app;
 
@@ -169,7 +169,7 @@ Widget.renderBusinessData = async function(widget) {
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
-    const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : ''));
+    const subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : ''));
     const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : ''));
 
     const data = {
