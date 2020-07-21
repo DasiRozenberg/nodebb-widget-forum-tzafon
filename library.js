@@ -14,6 +14,7 @@ const posts = require.main.require('./src/posts');
 const groups = require.main.require('./src/groups');
 const utils = require.main.require('./src/utils');
 const meta = require.main.require('./src/meta');
+const upload = require.main.require('./src/controllers/upload');
 
 let app;
 
@@ -75,10 +76,23 @@ function renderContact(req, res) {
     });
 }
 
-function postContact(req, res) {
+async function postContact(req, res) {
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
+
+    let files = req.files.files;
+
+    if (!Array.isArray(files)) {
+        return res.status(500).json('invalid files');
+    }
+
+    if (Array.isArray(files[0])) {
+        files = files[0];
+    }
+
+    const fileObj = files.length ? await uploadsController.uploadFile(req.uid, files[0]) : {};
+
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
             return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete.recaptcha]]' });
@@ -87,17 +101,18 @@ function postContact(req, res) {
             if (err) {
                 return res.status(400).json({ success: false, msg: '[[contactpage:error.invalid.recaptcha]]' });
             } else {
-                sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, res);
+                sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, fileObj, res);
             }
         });
     } else {
-        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, res);
+        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, fileObj, res);
     }
 }
 
-function sendMail(replyTo, name, subject, message, res) {
+function sendMail(replyTo, name, subject, message, fileObj, res) {
     let mailParams = {
         content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
+        fileObj,
         footer_text: ContactPage.messageFooter,
         from_name: name,
         subject: subject,
