@@ -86,7 +86,7 @@ async function postContact(req, res) {
 
     let file = req.file;
 
-    const fileObj = file ? await uploadsController.uploadFile(req.uid, file) : {};
+    const fileObj = file ? await upload.uploadFile(req.uid, file) : {};
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
@@ -196,9 +196,11 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = widget.templateData.category.cid;
     }
 
-    const { topics } = await topics.getRecentTopics(cid, uid, 0, 4);
+    const topicsData = await topics.getRecentTopics(cid, uid, 0, 4);
+    console.log('topic keys', Object.keys(topicsData));
+
     const data = {
-        topics,
+        topics: topicsData.topics,
         relative_path: nconf.get('relative_path'),
         loggedIn: !!widget.req.uid,
         config: {
