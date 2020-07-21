@@ -22,7 +22,7 @@
     <p></p>
 </div>
 
-<form id="contact-form" class="form-horizontal" role="form" method="post">
+<form id="contact-form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label class="control-label col-sm-2" for="email">[[contactpage:form.email]]</label>
         <div class="col-sm-10">

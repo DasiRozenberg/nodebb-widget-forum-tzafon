@@ -1,5 +1,7 @@
 'use strict';
 
+var multer = require('multer')
+
 const nconf = require.main.require('nconf');
 const validator = require.main.require('validator');
 const benchpressjs = require.main.require('benchpressjs');
@@ -30,7 +32,7 @@ Widget.init = async function(params) {
 
     router.get('/contact', middleware.buildHeader, renderContact);
     router.get('/api/contact', renderContact);
-    router.post('/contact', postContact);
+    router.post('/contact', upload.single('file'), postContact);
 
     // admin panel
     router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
@@ -79,6 +81,7 @@ function renderContact(req, res) {
 
 async function postContact(req, res) {
     console.log('body', JSON.stringify(req.body, null, '\t'))
+    console.log('file', JSON.stringify(req.file, null, '\t'))
 
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
