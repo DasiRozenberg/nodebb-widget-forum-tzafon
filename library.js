@@ -13,6 +13,7 @@ const topics = require.main.require('./src/topics');
 const posts = require.main.require('./src/posts');
 const groups = require.main.require('./src/groups');
 const utils = require.main.require('./src/utils');
+const emailer = require.main.require('./src/emailer');
 const meta = require.main.require('./src/meta');
 const upload = require.main.require('./src/controllers/uploads');
 
@@ -77,10 +78,7 @@ function renderContact(req, res) {
 }
 
 async function postContact(req, res) {
-    console.log('req keys', Object.keys(req))
     console.log('body', JSON.stringify(req.body, null, '\t'))
-    console.log('headers', JSON.stringify(req.headers, null, '\t'))
-    console.log('res keys', Object.keys(res))
 
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
