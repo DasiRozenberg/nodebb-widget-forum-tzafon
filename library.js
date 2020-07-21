@@ -77,20 +77,20 @@ function renderContact(req, res) {
 }
 
 async function postContact(req, res) {
-    console.log('req.body', req.body)
+    console.log('object keys', Object.keys(req))
+
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
 
-    let files = req.files.files;
-
-    if (!Array.isArray(files)) {
-        return res.status(500).json('invalid files');
-    }
-
-    if (Array.isArray(files[0])) {
-        files = files[0];
-    }
+    // let files = req.files.files;
+    // if (!Array.isArray(files)) {
+    //     return res.status(500).json('invalid files');
+    // }
+    // if (Array.isArray(files[0])) {
+    //     files = files[0];
+    // }
+    let files = [];
 
     const fileObj = files.length ? await uploadsController.uploadFile(req.uid, files[0]) : {};
 
