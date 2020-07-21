@@ -39,7 +39,7 @@
     margin-left: 5px;
 }
 
-.business .item .item-body i.no-data {
+.business i.no-data {
     opacity: 0.5;
 }
 
@@ -131,6 +131,7 @@
     resize: vertical;
 }
 
-.page-contact h4 {
+.page-contact h3 {
     color: #1D497B;
+    text-align: center;
 }

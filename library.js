@@ -80,23 +80,13 @@ function renderContact(req, res) {
 }
 
 async function postContact(req, res) {
-    console.log('body', JSON.stringify(req.body, null, '\t'))
-    console.log('file', JSON.stringify(req.file, null, '\t'))
-
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
 
-    // let files = req.files.files;
-    // if (!Array.isArray(files)) {
-    //     return res.status(500).json('invalid files');
-    // }
-    // if (Array.isArray(files[0])) {
-    //     files = files[0];
-    // }
-    let files = [];
+    let file = req.file;
 
-    const fileObj = files.length ? await uploadsController.uploadFile(req.uid, files[0]) : {};
+    const fileObj = file ? await uploadsController.uploadFile(req.uid, file) : {};
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
@@ -174,8 +164,8 @@ Widget.renderBusinessData = async function(widget) {
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
-    const subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : ''));
-    const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : ''));
+    const subcategories = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : '').filter(item => item));
+    const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : '').filter(item => item));
 
     const data = {
         posts: postsData,
@@ -193,17 +183,28 @@ Widget.renderBusinessData = async function(widget) {
 };
 
 Widget.renderRecentViewWidget = async function(widget) {
-    const data = await topics.getLatestTopics({
-        uid: widget.uid,
-        start: 0,
-        stop: 19,
-        term: 'month',
-    });
-    data.relative_path = nconf.get('relative_path');
-    data.loggedIn = !!widget.req.uid;
-    data.config = data.config || {};
-    data.config.relative_path = nconf.get('relative_path');
+    if (!isVisibleInCategory(widget)) {
+        return null;
+    }
 
+    let cid;
+    if (widget.data.cid) {
+        cid = widget.data.cid;
+    } else if (widget.templateData.template.category) {
+        cid = widget.templateData.cid;
+    } else if (widget.templateData.template.topic && widget.templateData.category) {
+        cid = widget.templateData.category.cid;
+    }
+
+    const { topics } = await topics.getRecentTopics(cid, uid, 0, 4);
+    const data = {
+        topics,
+        relative_path: nconf.get('relative_path'),
+        loggedIn: !!widget.req.uid,
+        config: {
+            relative_path: nconf.get('relative_path')
+        }
+    };
     widget.html = await app.renderAsync('widgets/recent', data);
     widget.html = widget.html.replace(/<ol[\s\S]*?<br \/>/, '').replace('<br>', '');
     return widget;
@@ -230,7 +231,7 @@ Widget.defineWidgets = async function(widgets) {
             widget: 'recentviewtzafon',
             name: 'Recent View Tzafon',
             description: 'Renders the /recent page',
-            content: 'admin/defaultwidget',
+            content: 'admin/recenttzafon',
         },
     ];
 

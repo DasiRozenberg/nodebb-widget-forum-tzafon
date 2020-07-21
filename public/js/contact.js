@@ -6,7 +6,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
         var email = $('#email');
 
         var contactMsgTemplates = {
-            'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\nצרוף קובץ:\n",
+            'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\n",
 
         };
         var contactSubjectTemplates = {

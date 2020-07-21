@@ -35,11 +35,11 @@
 							<br />
 
 							<i class="fa fa-map-marker"></i>
-							{posts.data.5}
+							{posts.data.4}, {posts.data.5}
 							<!-- IF !posts.data.5 --><i class="no-data">אין נתונים</i><!-- END -->
 							<br />
 
-							<i class="fa fa-clock-0"></i>
+							<i class="fa fa-clock-o"></i>
 							{posts.data.6}
 							<!-- IF !posts.data.6 --><i class="no-data">אין נתונים</i><!-- END -->
 							<br />
