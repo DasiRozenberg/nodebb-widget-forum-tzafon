@@ -108,12 +108,12 @@
 
 		function processHtml(html) {
 			var isadmin = business.attr('data-isadmin');
-			var category = $('.container>.row>.category');
+			var category = $('.container>.row>.category').children();
 			if (isadmin === 'true') {
 				category.show();
 			}
 
-			html.insertAfter(category);
+			html.appendTo(category);
 
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
