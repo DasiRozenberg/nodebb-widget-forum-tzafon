@@ -144,7 +144,7 @@
 	} else {
 		document.onreadystatechange = function () {
 			var state = document.readyState;
-			if (readyState != 'loading') {
+			if (state != 'loading') {
 				onLoad();
 			}
 		};
