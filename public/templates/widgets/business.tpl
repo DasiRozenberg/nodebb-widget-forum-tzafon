@@ -130,7 +130,7 @@
 					items = items.filter($('.sub:contains('+subcategory+')').parents('.item').parent());
 				}
 				if (city) {
-					items = items.filter($('.address:contains('+subcategory+')').parents('.item').parent());
+					items = items.filter($('.address:contains('+city+')').parents('.item').parent());
 				}
 				$(".item").parent().not(items).hide();
 				items.show();
