@@ -142,7 +142,7 @@
 	if (window.jQuery) {
 		onLoad();
 	} else {
-		window.addEventListener('load', onLoad);
+		document.addEventListener('DOMContentLoaded', onLoad);
 	}
 })();
 </script>
