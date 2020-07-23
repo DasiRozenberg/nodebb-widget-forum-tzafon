@@ -1,4 +1,4 @@
-<div class="business" data-isadmin="{isadmin}">
+<div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
 	<div class="businessContainer row" data-cid="{cid}">
 		<div class="col-xs-12">
 			<div class="filter-container">
@@ -113,7 +113,7 @@
 				category.children().show();
 			}
 
-			html.appendTo(category);
+			html.removeClass('col-lg-9 col-sm-12').appendTo(category);
 
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
@@ -144,7 +144,7 @@
 	} else {
 		document.onreadystatechange = function () {
 			var state = document.readyState;
-			if (state != 'loading') {
+			if (state == 'complete') {
 				onLoad();
 			}
 		};

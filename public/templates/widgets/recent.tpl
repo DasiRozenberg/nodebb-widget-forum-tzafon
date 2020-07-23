@@ -1,4 +1,4 @@
-<div class="recent">
+<div class="recent col-lg-9 col-sm-12">
 
 	<div class="clearfix">
 		<div class="pull-left">
@@ -40,7 +40,7 @@
 		processHtml(recent);
 
 		function processHtml(html) {
-			html.insertAfter($('.business'));
+			html.removeClass('col-lg-9 col-sm-12').insertAfter($('.business'));
 		}
 	}
 
@@ -48,7 +48,12 @@
 	if (window.jQuery) {
 		onLoad();
 	} else {
-		window.addEventListener('load', onLoad);
+		document.onreadystatechange = function () {
+			var state = document.readyState;
+			if (state == 'complete') {
+				onLoad();
+			}
+		};
 	}
 })();
 </script>
