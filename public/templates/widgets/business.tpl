@@ -30,18 +30,24 @@
 						<hr class="second-hr" />
 						<div class="item-body">
 							<i class="fa fa-th-large"></i>
-							{posts.data.2}
-							<!-- IF !posts.data.2 --><i class="no-data">אין נתונים</i><!-- END -->
+							<span class="sub">
+								{posts.data.2}
+								<!-- IF !posts.data.2 --><i class="no-data">אין נתונים</i><!-- END -->
+							</span>
 							<br />
 
 							<i class="fa fa-map-marker"></i>
-							{posts.data.4}, {posts.data.5}
-							<!-- IF !posts.data.5 --><i class="no-data">אין נתונים</i><!-- END -->
+							<span class="address">
+								{posts.data.4}, {posts.data.5}
+								<!-- IF !posts.data.5 --><i class="no-data">אין נתונים</i><!-- END -->
+							</span>
 							<br />
 
 							<i class="fa fa-clock-o"></i>
-							{posts.data.6}
-							<!-- IF !posts.data.6 --><i class="no-data">אין נתונים</i><!-- END -->
+							<span class="hours">
+								{posts.data.6}
+								<!-- IF !posts.data.6 --><i class="no-data">אין נתונים</i><!-- END -->
+							</span>
 							<br />
 						</div>
 					</div>
@@ -121,10 +127,10 @@
 				var city = $('#city').val();
 				var items = $(".item").parent();
 				if (subcategory) {
-					items = items.filter(":contains('" + subcategory + "')");
+					items = items.filter(":contains(.sub:contains('" + subcategory + "'))");
 				}
 				if (city) {
-					items = items.filter(":contains('" + city + "')");
+					items = items.filter(":contains(.address:contains('" + city + "'))");
 				}
 				$(".item").parent().not(items).hide();
 				items.show();
