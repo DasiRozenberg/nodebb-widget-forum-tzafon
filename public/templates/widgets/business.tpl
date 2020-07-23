@@ -147,7 +147,7 @@
 			if (readyState != 'loading') {
 				onLoad();
 			}
-		}​;
+		};
 	}
 })();
 </script>
