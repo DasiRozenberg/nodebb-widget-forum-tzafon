@@ -161,7 +161,7 @@ Widget.renderBusinessData = async function(widget) {
         postsData = await categories.getRecentReplies(cid, 1, 1000);
         postsData = postsData.map(item => ({
             ...item,
-            data: item.content.split('<br />\n')
+            data: item.content.split('<br />\n').map(item => item !== '.' ? item : "")
         }));
         console.log(JSON.stringify(postsData, null, '\t'))
     }
