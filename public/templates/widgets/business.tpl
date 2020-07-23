@@ -108,9 +108,9 @@
 
 		function processHtml(html) {
 			var isadmin = business.attr('data-isadmin');
-			var category = $('.container>.row>.category').children();
+			var category = $('.container>.row>.category');
 			if (isadmin === 'true') {
-				category.show();
+				category.children().show();
 			}
 
 			html.appendTo(category);
