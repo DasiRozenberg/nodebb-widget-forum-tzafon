@@ -116,14 +116,14 @@
 			$('.filter-container select', html).change(function (e){
 				var subcategory = $('#subcategory').val();
 				var city = $('#city').val();
-				var items = $(".item");
+				var items = $(".item").parent();
 				if (subcategory) {
 					items = items.filter(":contains('" + subcategory + "')");
 				}
 				if (city) {
 					items = items.filter(":contains('" + city + "')");
 				}
-				$(".item").not(items).hide();
+				$(".item").parent().not(items).hide();
 				items.show();
 			});
 		}
