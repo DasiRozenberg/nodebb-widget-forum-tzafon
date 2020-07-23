@@ -113,6 +113,7 @@
 				category.children().show();
 			}
 
+			$('.container>.row>').show();
 			html.removeClass('col-lg-9 col-sm-12').appendTo(category);
 
 			$('.item', html).click(function (e){
