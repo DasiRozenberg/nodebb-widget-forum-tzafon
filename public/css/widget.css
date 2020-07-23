@@ -1,3 +1,7 @@
+.business {
+    padding-bottom: 15px;
+}
+
 .business .itemsContainer {
     max-height: calc(170px * 4);
     overflow-y: auto;
