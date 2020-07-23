@@ -1,4 +1,4 @@
-<div class="recent">
+<div class="recent col-lg-9 col-sm-12">
 
 	<div class="clearfix">
 		<div class="pull-left">
