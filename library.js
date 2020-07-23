@@ -163,7 +163,6 @@ Widget.renderBusinessData = async function(widget) {
             ...item,
             data: item.content.split('<br />\n').map(item => item !== '.' ? item : "")
         }));
-        console.log(JSON.stringify(postsData, null, '\t'))
     }
     const isadmin = await user.isAdministrator(widget.uid);
 
