@@ -50,7 +50,7 @@
 			onLoad();
 		}
 		else {
-			setTimeOut(function() {
+			setTimeout(function() {
 				tryToLoad();
 			});
 		}
