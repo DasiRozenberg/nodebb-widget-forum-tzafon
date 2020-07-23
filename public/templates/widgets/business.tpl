@@ -76,6 +76,9 @@
 								
 								<div class="notes">הערות</div>
 								{posts.data.8}
+								{posts.data.9}
+								{posts.data.10}
+								{posts.data.11}
 								<!-- IF !posts.data.8 --><i class="no-data">אין נתונים</i><!-- END -->
 								<br />
 							</div>
