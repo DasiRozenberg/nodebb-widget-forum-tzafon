@@ -1,4 +1,4 @@
-<div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
+<div class="business" data-isadmin="{isadmin}">
 	<div class="businessContainer row" data-cid="{cid}">
 		<div class="col-xs-12">
 			<div class="filter-container">
@@ -142,7 +142,12 @@
 	if (window.jQuery) {
 		onLoad();
 	} else {
-		document.addEventListener('DOMContentLoaded', onLoad);
+		document.onreadystatechange = function () {
+			var state = document.readyState;
+			if (readyState != 'loading') {
+				onLoad();
+			}
+		}​;
 	}
 })();
 </script>
