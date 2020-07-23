@@ -139,15 +139,17 @@
 	}
 
 
-	if (window.jQuery) {
-		onLoad();
-	} else {
-		document.onreadystatechange = function () {
-			var state = document.readyState;
-			if (state == 'complete') {
-				onLoad();
-			}
-		};
+	function tryToLoad() {
+		if (window.jQuery) {
+			onLoad();
+		}
+		else {
+			setTimeOut(function() {
+				tryToLoad();
+			});
+		}
 	}
+
+	tryToLoad();
 })();
 </script>
