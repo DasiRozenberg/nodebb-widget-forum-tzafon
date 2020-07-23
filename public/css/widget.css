@@ -1,6 +1,6 @@
 .business .itemsContainer {
     max-height: calc(170px * 4);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .business .item {

@@ -29,3 +29,26 @@
 		<!-- IMPORT partials/topics_list.tpl -->
 	</div>
 </div>
+
+<script>
+'use strict';
+/* globals app, socket, translator, templates*/
+(function() {
+	function onLoad() {
+		var recent = $('.recent');
+
+		processHtml(recent);
+
+		function processHtml(html) {
+			html.insertAfter($('.business'));
+		}
+	}
+
+
+	if (window.jQuery) {
+		onLoad();
+	} else {
+		window.addEventListener('load', onLoad);
+	}
+})();
+</script>
