@@ -40,7 +40,12 @@
 		processHtml(recent);
 
 		function processHtml(html) {
-			html.removeClass('col-lg-9 col-sm-12').insertAfter($('.business'));
+			if($('.category .business').length === 0) {
+				setTimeout(function() {
+					processHtml(html);
+				});
+			}
+			html.removeClass('col-lg-9 col-sm-12').insertAfter($('.category .business'));
 		}
 	}
 
