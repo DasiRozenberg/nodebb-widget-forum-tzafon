@@ -18,7 +18,7 @@
 				<a class="contact" href="/contact?mode=ad">פרסום ועדכון עסק</a>
 			</div>
 		</div>
-		<div class="col-xs-12">
+		<div class="col-xs-12 itemsContainer">
 		<!-- BEGIN posts -->
 			<div class="col-sm-3">
 				<div class="item">

@@ -1,3 +1,8 @@
+.business .itemsContainer {
+    max-height: calc(170px * 4);
+    overflow-y: scroll;
+}
+
 .business .item {
     box-shadow: 0 0 6px 0 #000;
     padding: 0 10px;
