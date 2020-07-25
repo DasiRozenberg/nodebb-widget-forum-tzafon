@@ -30,7 +30,7 @@ Widget.init = async function(params) {
 
     router.get('/contact', middleware.buildHeader, renderContact);
     router.get('/api/contact', renderContact);
-    router.post('/contact', express.text(), express.json(), postContact);
+    router.post('/contact', postContact);
 
     // admin panel
     router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
@@ -78,13 +78,11 @@ function renderContact(req, res) {
 }
 
 async function postContact(req, res) {
-    console.log(req.body);
     if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
 
     const file = req.body.file;
-    console.log('file', file);
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {

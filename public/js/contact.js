@@ -41,6 +41,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
         $('#send').on('click', function(e) {
             e.preventDefault();
             $('#contact-notify').hide();
+            $('#fileUpload').prop("disabled", true);
             $('#contact-form').ajaxSubmit({
                 headers: {
                     'x-csrf-token': config.csrf_token,
@@ -50,6 +51,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
                     $('#contact-form').hide();
                 },
                 error: function(resp) {
+                    $('#fileUpload').prop("disabled", false);
                     if (resp && (resp.status == 400 || resp.status == 500) && resp.responseJSON) {
                         showError(resp.responseJSON.msg);
                     } else {
