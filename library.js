@@ -70,12 +70,13 @@ Widget.modifyEmail = function(mailData, callback) {
     callback(null, mailData);
 }
 
-Widget.sendEmail = async function(mailData, callback) {
+Widget.sendEmail = function(mailData, callback) {
     if (mailData && mailData.template == "contact-page") {
         addAttachment(mailData);
     }
-    const response = await emailer.sendViaFallback(mailData);
-    callback(response);
+    emailer.sendViaFallback(mailData)
+        .then(response => callback(response, mailData))
+        .catch(err => callback(err, mailData));
 }
 
 function renderContact(req, res) {
