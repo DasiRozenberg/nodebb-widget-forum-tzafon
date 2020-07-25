@@ -4,6 +4,7 @@ const nconf = require.main.require('nconf');
 const validator = require.main.require('validator');
 const benchpressjs = require.main.require('benchpressjs');
 const _ = require.main.require('lodash');
+const express = require.main.require('express');
 
 const db = require.main.require('./src/database');
 const categories = require.main.require('./src/categories');
@@ -29,7 +30,7 @@ Widget.init = async function(params) {
 
     router.get('/contact', middleware.buildHeader, renderContact);
     router.get('/api/contact', renderContact);
-    router.post('/contact', postContact);
+    router.post('/contact', express.text(), express.json(), postContact);
 
     // admin panel
     router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
