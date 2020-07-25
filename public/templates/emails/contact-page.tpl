@@ -19,7 +19,6 @@
 					<td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
 					    <h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 20px; line-height: 27px; color: #333333; font-weight: normal;">[[contactpage:email.header, {from_name}]]</h1>
 						<p style="margin: 0;">{content_text}</p>
-						<!-- IF file --><p style="margin: 0;"><img src="{cid}"/></p><!-- END -->
 					</td>
 				</tr>
 				<tr>
