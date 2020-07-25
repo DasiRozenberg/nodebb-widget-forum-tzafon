@@ -92,6 +92,7 @@ async function postContact(req, res) {
     }
 
     const file = req.body.file;
+    const fileName = req.body.fileName;
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
@@ -105,15 +106,15 @@ async function postContact(req, res) {
             }
         });
     } else {
-        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, res);
+        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, fileName, res);
     }
 }
 
-function sendMail(replyTo, name, subject, message, file, res) {
+function sendMail(replyTo, name, subject, message, file, fileName, res) {
     let mailParams = {
         content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
         file: file,
-        cid: 'uploadFile',
+        cid: fileName,
         footer_text: ContactPage.messageFooter,
         from_name: name,
         subject: subject,
@@ -144,7 +145,7 @@ function addAttachment(mailData) {
     const cid = mailData._raw.cid;
     console.log(cid, file)
     mailData.attachments = [{
-        filename: 'upload-file',
+        filename: cid,
         content: file.split("base64,")[1],
         encoding: 'base64',
         cid

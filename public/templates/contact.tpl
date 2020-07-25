@@ -50,6 +50,7 @@
         <div class="col-sm-10">
             <input type="file" class="form-control" accept="image/*" id="fileUpload">
             <input type="hidden" id="file" name="file">
+            <input type="hidden" id="fileName" name="file">
         </div>
     </div>
     <div class="form-group">

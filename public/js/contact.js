@@ -32,6 +32,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
 
                 reader.onload = function(e) {
                     $('#file').val(e.target.result);
+                    $('#fileName').val(this.files[0].name);
                 }
 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
