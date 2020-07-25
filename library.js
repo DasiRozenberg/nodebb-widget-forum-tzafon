@@ -70,17 +70,11 @@ Widget.modifyEmail = function(mailData, callback) {
     callback(null, mailData);
 }
 
-Widget.sendEmail = function(mailData, callback) {
+Widget.sendEmail = async function(mailData, callback) {
     if (mailData && mailData.template == "contact-page") {
-        const file = mailData._raw.file;
-        const cid = mailData._raw.cid;
-        mailData.attachments = [{
-            filename: 'upload-file',
-            content: file.split("base64,")[1],
-            encoding: 'base64',
-            cid
-        }];
+        addAttachment(mailData);
     }
+    await emailer.sendViaFallback(mailData);
     callback(null, mailData);
 }
 
@@ -142,6 +136,17 @@ function modifyFrom(mailData) {
     mailData.from_name = mailData._raw.from_name;
     mailData.replyTo = mailData._raw.replyTo;
     return mailData;
+}
+
+function addAttachment(mailData) {
+    const file = mailData._raw.file;
+    const cid = mailData._raw.cid;
+    mailData.attachments = [{
+        filename: 'upload-file',
+        content: file.split("base64,")[1],
+        encoding: 'base64',
+        cid
+    }];
 }
 
 function renderAdmin(req, res) {
