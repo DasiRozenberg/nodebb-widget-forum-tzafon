@@ -1,7 +1,7 @@
 <!-- IMPORT emails/partials/header.tpl -->
 
 <!-- Email Body : BEGIN -->
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" dir="rtl" width="100%" style="max-width: 600px;">
 
 	<!-- Hero Image, Flush : BEGIN -->
 	<tr>
