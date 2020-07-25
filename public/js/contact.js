@@ -29,10 +29,10 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
         fileUpload.on('change', function() {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
+                $('#fileName').val(this.files[0].name);
 
                 reader.onload = function(e) {
                     $('#file').val(e.target.result);
-                    $('#fileName').val(this.files[0].name);
                 }
 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
