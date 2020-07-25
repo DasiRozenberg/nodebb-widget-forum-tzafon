@@ -74,8 +74,8 @@ Widget.sendEmail = async function(mailData, callback) {
     if (mailData && mailData.template == "contact-page") {
         addAttachment(mailData);
     }
-    await emailer.sendViaFallback(mailData);
-    callback(null, mailData);
+    const response = await emailer.sendViaFallback(mailData);
+    callback(response);
 }
 
 function renderContact(req, res) {
