@@ -142,6 +142,7 @@ function modifyFrom(mailData) {
 function addAttachment(mailData) {
     const file = mailData._raw.file;
     const cid = mailData._raw.cid;
+    console.log(cid, file)
     mailData.attachments = [{
         filename: 'upload-file',
         content: file.split("base64,")[1],
