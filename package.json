@@ -1,6 +1,6 @@
 {
     "name": "nodebb-widget-forum-tzafon",
-    "version": "1.0.30",
+    "version": "1.0.31",
     "description": "NodeBB Forum Tzafon Widgets",
     "main": "library.js",
     "scripts": {
@@ -37,7 +37,5 @@
         "eslint-config-airbnb-base": "14.0.0",
         "eslint-plugin-import": "2.18.2"
     },
-    "dependencies": {
-        "multer": "^1.4.2"
-    }
+    "dependencies": {}
 }

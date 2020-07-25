@@ -1,8 +1,5 @@
 'use strict';
 
-var multer = require('multer');
-var upload = multer({ dest: 'uploads/files/' });
-
 const nconf = require.main.require('nconf');
 const validator = require.main.require('validator');
 const benchpressjs = require.main.require('benchpressjs');
@@ -18,7 +15,6 @@ const groups = require.main.require('./src/groups');
 const utils = require.main.require('./src/utils');
 const emailer = require.main.require('./src/emailer');
 const meta = require.main.require('./src/meta');
-const uploadController = require.main.require('./src/controllers/uploads');
 
 let app;
 
@@ -33,7 +29,7 @@ Widget.init = async function(params) {
 
     router.get('/contact', middleware.buildHeader, renderContact);
     router.get('/api/contact', renderContact);
-    router.post('/contact', upload.single('file'), postContact);
+    router.post('/contact', postContact);
 
     // admin panel
     router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
@@ -85,10 +81,8 @@ async function postContact(req, res) {
         return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
     }
 
-    let file = req.file;
-    console.log('file', JSON.stringify(file, null, '\t'))
-
-    const fileObj = false ? await uploadController.uploadFile(req.uid, file) : {};
+    const file = req.body.file;
+    console.log('file', file);
 
     if (ContactPage.reCaptchaPubKey) {
         if (!req.body['g-recaptcha-response']) {
@@ -98,18 +92,18 @@ async function postContact(req, res) {
             if (err) {
                 return res.status(400).json({ success: false, msg: '[[contactpage:error.invalid.recaptcha]]' });
             } else {
-                sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, fileObj, res);
+                sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, res);
             }
         });
     } else {
-        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, fileObj, res);
+        sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, res);
     }
 }
 
-function sendMail(replyTo, name, subject, message, fileObj, res) {
+function sendMail(replyTo, name, subject, message, file, res) {
     let mailParams = {
         content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
-        fileObj,
+        file: file,
         footer_text: ContactPage.messageFooter,
         from_name: name,
         subject: subject,
@@ -198,16 +192,14 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = widget.templateData.category.cid;
     }
 
-    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 4);
+    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
 
     const data = {
         topics: topicsData.topics,
         relative_path: nconf.get('relative_path'),
-        usePagination: true,
         loggedIn: !!widget.req.uid,
         config: {
             relative_path: nconf.get('relative_path'),
-            usePagination: true,
         }
     };
     widget.html = await app.renderAsync('widgets/recent', data);

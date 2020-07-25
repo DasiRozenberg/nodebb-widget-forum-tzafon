@@ -4,6 +4,7 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
     var Contact = {};
     Contact.init = function() {
         var email = $('#email');
+        var fileUpload = $('#fileUpload');
 
         var contactMsgTemplates = {
             'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\n",
@@ -25,6 +26,17 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
                 }
             }
         });
+        fileUpload.on('change', function() {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#file').val(e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
+            }
+        })
 
         $('#send').on('click', function(e) {
             e.preventDefault();
