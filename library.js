@@ -203,10 +203,11 @@ Widget.renderRecentViewWidget = async function(widget) {
     const data = {
         topics: topicsData.topics,
         relative_path: nconf.get('relative_path'),
+        usePagination: true,
         loggedIn: !!widget.req.uid,
         config: {
             relative_path: nconf.get('relative_path'),
-            usePagination: true
+            usePagination: true,
         }
     };
     widget.html = await app.renderAsync('widgets/recent', data);
