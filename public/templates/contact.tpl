@@ -26,7 +26,7 @@
     <h3>לפרטים נוספים והצעת מחיר: 0583-22-00-90</h3>
 </div>
 
-<form id="contact-form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+<form id="contact-form" class="form-horizontal" role="form" method="post">
     <div class="form-group">
         <label class="control-label col-sm-2" for="email">[[contactpage:form.email]]</label>
         <div class="col-sm-10">
