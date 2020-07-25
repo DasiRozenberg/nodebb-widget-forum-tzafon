@@ -70,6 +70,20 @@ Widget.modifyEmail = function(mailData, callback) {
     callback(null, mailData);
 }
 
+Widget.sendEmail = function(mailData, callback) {
+    if (mailData && mailData.template == "contact-page") {
+        const file = mailData._raw.file;
+        const cid = mailData._raw.cid;
+        mailData.attachments = [{
+            filename: 'upload-file',
+            content: file.split("base64,")[1],
+            encoding: 'base64',
+            cid
+        }];
+    }
+    callback(null, mailData);
+}
+
 function renderContact(req, res) {
     return res.render('contact', {
         recaptcha: ContactPage.reCaptchaPubKey,
@@ -104,6 +118,7 @@ function sendMail(replyTo, name, subject, message, file, res) {
     let mailParams = {
         content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
         file: file,
+        cid: 'uploadFile',
         footer_text: ContactPage.messageFooter,
         from_name: name,
         subject: subject,

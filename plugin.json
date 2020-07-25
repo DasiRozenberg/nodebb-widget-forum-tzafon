@@ -45,6 +45,10 @@
         {
             "hook": "filter:email.modify",
             "method": "modifyEmail"
+        },
+        {
+            "hook": "filter:email.send",
+            "method": "sendEmail"
         }
     ],
     "templates": "./public/templates",
