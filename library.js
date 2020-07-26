@@ -8,6 +8,7 @@ const winston = require.main.require('winston');
 
 const db = require.main.require('./src/database');
 const categories = require.main.require('./src/categories');
+const helpers = require.main.require('./src/controllers/helpers');
 const user = require.main.require('./src/user');
 const plugins = require.main.require('./src/plugins');
 const topics = require.main.require('./src/topics');
@@ -213,14 +214,12 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = widget.templateData.cid;
     } else if (widget.templateData.template.topic && widget.templateData.category) {
         cid = widget.templateData.category.cid;
+    } else {
+        const states = [categories.watchStates.watching, categories.watchStates.notwatching];
+        cids = await helpers.getCategoriesByStates(widget.uid, null, states).categories.map(c => c.cid);
     }
 
-    const topicsData = await topics.getLatestTopics({
-        uid: widget.uid,
-        start: 0,
-        stop: 10,
-        term: 'year',
-    });
+    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
 
     const data = {
         topics: topicsData.topics,
