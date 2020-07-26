@@ -218,7 +218,16 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = cats.map(c => c.cid);
     }
 
-    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10, '');
+    const topicsData = await topics.getSortedTopics({
+        cids: cid,
+        uid: widget.uid,
+        start: 0,
+        stop: 10,
+        term: 'alltime',
+        sort: 'recent',
+        floatPinned: undefined,
+        query: {}
+    });
 
     const data = {
         topics: topicsData.topics,
