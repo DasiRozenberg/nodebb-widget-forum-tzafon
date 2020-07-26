@@ -121,7 +121,7 @@
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
 			});
-			$('.popup-close span').click(function (e){
+			$('.popup-close i').click(function (e){
 				$(this).parents('.popup').hide();
 				e.stopImmediatePropagation();
 			});
