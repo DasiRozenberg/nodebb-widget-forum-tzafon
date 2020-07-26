@@ -214,21 +214,10 @@ Widget.renderRecentViewWidget = async function(widget) {
     } else if (widget.templateData.template.topic && widget.templateData.category) {
         cid = widget.templateData.category.cid;
     } else {
-        const cats = await categories.getAllCategories(widget.uid);
-        cid = cats.map(c => c.cid);
+        cid = await categories.getCidsByPrivilege('categories:cid', widget.uid, 'topics:read');
     }
 
-    const topicsData = await topics.getSortedTopics({
-        cids: cid,
-        uid: widget.uid,
-        start: 0,
-        stop: 10,
-        filter: '',
-        term: 'alltime',
-        sort: 'recent',
-        floatPinned: undefined,
-        query: {}
-    });
+    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
 
     const data = {
         topics: topicsData.topics,
