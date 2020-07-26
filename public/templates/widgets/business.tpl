@@ -55,7 +55,7 @@
 						<div class="popup" style="display:none">
 							<div class="popup-content">
 								<div class="popup-close">
-									<span>X</span>
+									<i class="fa fa-close"></i>
 								</div>
 								<div class="popup-header">
 									{posts.data.1}

@@ -84,18 +84,20 @@
     padding: 17px 0 0 20px;
 }
 
-.business .item .popup-close span {
+.business .item .popup-close i {
     cursor: pointer;
 }
 
 .business .item .popup-header {
     border-bottom: 2px dashed #1D497B;
     padding: 0 20px 20px;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 .business .item .popup-body {
     padding: 20px;
-    line-height: 1.75em;
+    line-height: 2.25em;
 }
 
 .business .item .popup-body .fa {
