@@ -216,8 +216,10 @@ Widget.renderRecentViewWidget = async function(widget) {
     }
 
     const topicsData = await topics.getLatestTopics({
+        uid: uid,
         start: 0,
-        stop: 10
+        stop: 10,
+        term: 'year',
     });
 
     const data = {
