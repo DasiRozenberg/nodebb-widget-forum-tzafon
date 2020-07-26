@@ -23,7 +23,7 @@
 </div>
 
 <div class="col-xs-offset-2">
-    <h3>לפרטים נוספים והצעת מחיר: 0583-22-00-90</h3>
+    <h3>לפרטים נוספים: 0583-22-00-90</h3>
 </div>
 
 <form id="contact-form" class="form-horizontal" role="form" method="post">
