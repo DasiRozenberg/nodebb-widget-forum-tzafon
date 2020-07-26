@@ -145,8 +145,9 @@ function addAttachment(mailData) {
     const cid = mailData._raw.cid;
     mailData.attachments = [{
         filename: cid,
-        content: file.split("base64,")[1],
-        encoding: 'base64',
+        content: file,
+        // content: file.split("base64,")[1],
+        // encoding: 'base64',
         cid
     }];
 }
