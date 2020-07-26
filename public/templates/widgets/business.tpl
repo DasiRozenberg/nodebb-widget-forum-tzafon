@@ -24,7 +24,7 @@
 				<div class="col-sm-3">
 					<div class="item">
 						<div data-pid="{posts.pid}" class="clearfix widget-posts">
-							<div class="item-header">
+							<div class="item-header" title="{posts.data.1}">
 								{posts.data.1}
 							</div>
 							<hr class="first-hr" />
