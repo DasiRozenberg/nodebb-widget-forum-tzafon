@@ -223,6 +223,7 @@ Widget.renderRecentViewWidget = async function(widget) {
         uid: widget.uid,
         start: 0,
         stop: 10,
+        filter: '',
         term: 'alltime',
         sort: 'recent',
         floatPinned: undefined,
