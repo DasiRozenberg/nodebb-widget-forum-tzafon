@@ -215,7 +215,10 @@ Widget.renderRecentViewWidget = async function(widget) {
         cid = widget.templateData.category.cid;
     }
 
-    const topicsData = await topics.getLatestTopics(0, 10);
+    const topicsData = await topics.getLatestTopics({
+        start: 0,
+        stop: 10
+    });
 
     const data = {
         topics: topicsData.topics,
