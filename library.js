@@ -214,7 +214,8 @@ Widget.renderRecentViewWidget = async function(widget) {
     } else if (widget.templateData.template.topic && widget.templateData.category) {
         cid = widget.templateData.category.cid;
     } else {
-        cid = await categories.getAllCategories(widget.uid).map(c => c.cid);
+        const cats = await categories.getAllCategories(widget.uid)
+        cid = cats.map(c => c.cid);
     }
 
     const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
