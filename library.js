@@ -216,10 +216,9 @@ Widget.renderRecentViewWidget = async function(widget) {
     } else {
         const cats = await categories.getAllCategories(widget.uid);
         cid = cats.map(c => c.cid);
-        console.log('cid', cid);
     }
 
-    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
+    const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10, '');
 
     const data = {
         topics: topicsData.topics,
