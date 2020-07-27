@@ -20,6 +20,19 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="itemsContainer">
+			<!-- IF !posts.length -->
+				<div class="no-posts-container">
+					<div class="no-posts-header">
+						העמוד יעלה בקרוב
+					</div>
+					<div class="no-posts-body">
+						אם יש לך דירות לפרסום/ מודעות דרושים/ מתווכים/ עסקים
+						<br />
+						או כל מידע רלוונטי אחר ניתן להשאיר פרטים כאן וניצור איתכם קשר
+					</div>
+				</div>
+			<!-- END -->
+
 			<!-- BEGIN posts -->
 				<div class="col-sm-3">
 					<div class="item">
