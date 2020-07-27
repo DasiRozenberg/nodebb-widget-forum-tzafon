@@ -132,7 +132,7 @@
 			html.removeClass('col-lg-9 col-sm-12').appendTo(category);
 
 			html.find('.item-header').each(function (){
-				$this = $(this);
+				var $this = $(this);
 				$this.attr('title', $this.text());
 			});
 
