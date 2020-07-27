@@ -134,7 +134,7 @@
     width: 14em;
 }
 
-.business .no-posts-container {
+.business .itemsContainer .no-posts-container {
     background-color: #b9cbd9;
     border-radius: 20px;
     display: flex;
@@ -146,11 +146,11 @@
     margin-top: 10px;
 }
 
-.business .no-posts-container .no-posts-header {
+.business .itemsContainer .no-posts-container .no-posts-header {
     font-size: 2em;
 }
 
-.business .no-posts-container .no-posts-body {
+.business .itemsContainer .no-posts-container .no-posts-body {
     font-size: 1.2em;
     text-align: center;
 }
