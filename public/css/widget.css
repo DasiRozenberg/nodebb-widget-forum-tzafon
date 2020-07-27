@@ -136,12 +136,14 @@
 
 .business .no-posts-container {
     background-color: #b9cbd9;
-    border-radius: 3vw;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-weight: bold;
+    font-weight: 700;
+    padding: 1em;
+    margin-top: 10px;
 }
 
 .business .no-posts-container .no-posts-header {
@@ -150,6 +152,7 @@
 
 .business .no-posts-container .no-posts-body {
     font-size: 1.2em;
+    text-align: center;
 }
 
 .flex-fill {
