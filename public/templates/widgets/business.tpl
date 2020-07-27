@@ -37,7 +37,7 @@
 				<div class="col-sm-3">
 					<div class="item">
 						<div data-pid="{posts.pid}" class="clearfix widget-posts">
-							<div class="item-header" title="{posts.data.1}">
+							<div class="item-header">
 								{posts.data.1}
 							</div>
 							<hr class="first-hr" />
@@ -130,6 +130,11 @@
 
 			//$('.container>.row>').show();
 			html.removeClass('col-lg-9 col-sm-12').appendTo(category);
+
+			html.find('.item-header').each(function (){
+				$this = $(this);
+				$this.attr('title', $this.text());
+			});
 
 			$('.item', html).click(function (e){
 				$('.popup', this).show();
