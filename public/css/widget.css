@@ -134,6 +134,24 @@
     width: 14em;
 }
 
+.business .no-posts-container {
+    background-color: #b9cbd9;
+    border-radius: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.business .no-posts-container .no-posts-header {
+    font-size: 2em;
+}
+
+.business .no-posts-container .no-posts-body {
+    font-size: 1.2em;
+}
+
 .flex-fill {
     flex-grow: 1;
 }
