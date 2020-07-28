@@ -48,9 +48,7 @@
     <div class="form-group">
         <label class="control-label col-sm-2" for="file">[[contactpage:form.file]]</label>
         <div class="col-sm-10">
-            <input type="file" class="form-control" accept="image/*" id="fileUpload">
-            <input type="hidden" id="file" name="file">
-            <input type="hidden" id="fileName" name="fileName">
+            <input type="file" class="form-control" accept="image/*" id="file" name="file">
         </div>
     </div>
     <div class="form-group">

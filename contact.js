@@ -1,6 +1,10 @@
 const winston = require.main.require('winston');
 const emailer = require.main.require('./src/emailer');
 const meta = require.main.require('./src/meta');
+const middleware = require.main.require('./src/middleware');
+const multipart = require.main.require('connect-multiparty');
+const multipartMiddleware = multipart();
+const middlewares = [multipartMiddleware, middleware.applyCSRF, middleware.applyBlacklist];
 
 
 module.exports = function(Widget) {
@@ -12,7 +16,7 @@ module.exports = function(Widget) {
 
         router.get('/contact', middleware.buildHeader, renderContact);
         router.get('/api/contact', renderContact);
-        router.post('/contact', postContact);
+        router.post('/contact', middlewares, postContact);
 
         // admin panel
         router.get('/admin/plugins/contact-page', middleware.admin.buildHeader, renderAdmin);
@@ -77,8 +81,7 @@ module.exports = function(Widget) {
             return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
         }
 
-        const file = req.body.file;
-        const fileName = req.body.fileName;
+        const uploadedFile = req.files.file;
 
         if (ContactPage.reCaptchaPubKey) {
             if (!req.body['g-recaptcha-response']) {
@@ -88,19 +91,18 @@ module.exports = function(Widget) {
                 if (err) {
                     return res.status(400).json({ success: false, msg: '[[contactpage:error.invalid.recaptcha]]' });
                 } else {
-                    sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, res);
+                    sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, uploadedFile, res);
                 }
             });
         } else {
-            sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, file, fileName, res);
+            sendMail(req.body.email, req.body.name, req.body.subject, req.body.message, uploadedFile, res);
         }
     }
 
-    function sendMail(replyTo, name, subject, message, file, fileName, res) {
+    function sendMail(replyTo, name, subject, message, uploadedFile, res) {
         let mailParams = {
             content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
-            file: file,
-            cid: fileName,
+            uploadedFile,
             footer_text: ContactPage.messageFooter,
             from_name: name,
             subject: subject,
@@ -127,14 +129,9 @@ module.exports = function(Widget) {
     }
 
     function addAttachment(mailData) {
-        const file = mailData._raw.file;
-        const cid = mailData._raw.cid;
+        const uploadedFile = mailData._raw.uploadedFile;
         mailData.attachments = [{
-            filename: cid,
-            // content: new Buffer(file, 'binary'),
-            content: file.split("base64,")[1],
-            encoding: 'base64',
-            cid
+            path: uploadedFile.path
         }];
     }
 

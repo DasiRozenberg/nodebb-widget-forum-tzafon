@@ -4,7 +4,6 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
     var Contact = {};
     Contact.init = function() {
         var email = $('#email');
-        var fileUpload = $('#fileUpload');
 
         var contactMsgTemplates = {
             'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\n",
@@ -26,23 +25,10 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
                 }
             }
         });
-        fileUpload.on('change', function() {
-            if (this.files && this.files[0]) {
-                var reader = new FileReader();
-                $('#fileName').val(this.files[0].name);
-
-                reader.onload = function(e) {
-                    $('#file').val(e.target.result);
-                }
-
-                reader.readAsDataURL(this.files[0]); // convert to base64 string
-            }
-        })
 
         $('#send').on('click', function(e) {
             e.preventDefault();
             $('#contact-notify').hide();
-            $('#fileUpload').prop("disabled", true);
             $('#contact-form').ajaxSubmit({
                 headers: {
                     'x-csrf-token': config.csrf_token,
@@ -52,7 +38,6 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
                     $('#contact-form').hide();
                 },
                 error: function(resp) {
-                    $('#fileUpload').prop("disabled", false);
                     if (resp && (resp.status == 400 || resp.status == 500) && resp.responseJSON) {
                         showError(resp.responseJSON.msg);
                     } else {
