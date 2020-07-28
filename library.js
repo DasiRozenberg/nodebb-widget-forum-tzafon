@@ -23,8 +23,10 @@ const Widget = module.exports;
 require('./contact')(Widget)
 require('./widgets')(Widget)
 require('./homepage')(Widget)
+require('./custom-register')(Widget)
 
 Widget.init = async function(params) {
     Widget.initWidgets(params);
     Widget.initContact(params);
+    Widget.initCutomRegister(params);
 };
