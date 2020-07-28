@@ -97,7 +97,7 @@ module.exports = function(Widget) {
 
             var value = userData[key];
 
-            if (key === 'consent' && (value !== 'true' && value !== true)) {
+            if (key === 'consent' && value !== 'on') {
                 error = { message: 'יש לאשר את תנאי השימוש באתר.' };
             }
         }
