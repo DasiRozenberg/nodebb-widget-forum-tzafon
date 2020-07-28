@@ -70,8 +70,13 @@ module.exports = function(Widget) {
 
         const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
 
+        const isBusiness = widget.data.pluginType === 'business';
+        const isApartment = widget.data.pluginType === 'apartment';
+
         const data = {
             topics: topicsData.topics,
+            isBusiness,
+            isApartment,
             relative_path: nconf.get('relative_path'),
             loggedIn: !!widget.req.uid,
             config: {

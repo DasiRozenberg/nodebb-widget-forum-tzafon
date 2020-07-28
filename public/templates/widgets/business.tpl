@@ -19,7 +19,14 @@
 			</div>
 		</div>
 
-		<!-- IMPORT partials/business_list.tpl -->
+		<!-- IF isBusiness -->
+			<!-- IMPORT partials/business_list.tpl -->
+		<!-- END -->
+
+		<!-- IF isApartment -->
+			<!-- IMPORT partials/apartment_list.tpl -->
+		<!-- END -->
+
 	</div>
 </div>
 
