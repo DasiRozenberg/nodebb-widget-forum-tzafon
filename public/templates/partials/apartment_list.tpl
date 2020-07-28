@@ -14,8 +14,6 @@
             </div>
         <!-- END -->
 
-    <h1>Apartment list</h1>
-
         <!-- BEGIN posts -->
             <div class="col-sm-3">
                 <div class="item">
