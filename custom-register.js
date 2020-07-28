@@ -1,59 +1,25 @@
 const user = require.main.require('./src/user');
 const db = require.main.require('./src/database');
-const z = require.main.require('nodebb-plugin-ns-custom-fields');
 
 module.exports = function(Widget) {
     var customFields = {
-            npi: "",
-            institution: "",
-            practicetype: "",
-            specialty: "",
-            practiceyears: ""
+            city: "",
+            consent: ""
         },
-        customData = [],
-        plugin = {};
+        customData = [];
 
-    Widget.initCutomRegister = function(params) {
-        console.log('keys of package', Object.keys(z));
-        //     var app = params.router,
-        //         middleware = params.middleware;
+    Widget.initCutomRegister = function(params) {};
 
-        //     app.get('/admin/custom-registration-fields', middleware.admin.buildHeader, renderAdmin);
-        //     app.get('/api/admin/custom-registration-fields', renderAdmin);
-    };
-
-    // plugin.addAdminNavigation = function(header, callback) {
-    //     header.plugins.push({
-    //         route: '/custom-registration-fields',
-    //         icon: 'fa-tint',
-    //         name: 'Custom Registration Fields'
-    //     });
-
-    //     callback(null, header);
-    // };
-
-    plugin.customHeaders = function(headers, callback) {
+    Widget.customHeaders = function(headers, callback) {
         for (var key in customFields) {
 
             switch (key) {
-                case 'npi':
-                    var label = "NPI #";
+                case 'city':
+                    var label = "עיר";
                     break;
 
-                case 'institution':
-                    var label = "Institution";
-                    break;
-
-                case 'practicetype':
-                    var label = "Practice Type";
-                    break;
-
-                case 'specialty':
-                    var label = "Specialty";
-                    break;
-
-                case 'practiceyears':
-                    var label = "Practice Years";
+                case 'consent':
+                    var label = "תנאי השימוש";
                     break;
             }
 
@@ -65,7 +31,7 @@ module.exports = function(Widget) {
         callback(null, headers);
     };
 
-    plugin.customFields = function(params, callback) {
+    Widget.customFields = function(params, callback) {
         var users = params.users.map(function(user) {
 
             if (!user.customRows) {
@@ -82,7 +48,7 @@ module.exports = function(Widget) {
         callback(null, { users: users });
     };
 
-    plugin.addField = function(params, callback) {
+    Widget.addField = function(params, callback) {
         for (var key in customFields) {
 
             if (key == "") {
@@ -91,29 +57,17 @@ module.exports = function(Widget) {
             }
 
             switch (key) {
-                case 'npi':
-                    var html = '<input class="form-control" type="text" name="npi" id="npi" placeholder="Enter NPI #"><span class="custom-feedback" id="npi-notify"></span><span class="help-block">A unique 10-digit identification number.</span>';
-                    var label = "NPI #";
+                case 'city':
+                    var html = `<input class="form-control" type="text" name="city" id="city" placeholder="באיזו עיר אתה גר?">
+                                <span class="custom-feedback" id="city-notify"></span>
+                                <span class="help-block">יש למלא את העיר שבה אתה גר</span>`;
+                    var label = "עיר";
                     break;
 
-                case 'institution':
-                    var html = '<input class="form-control" type="text" name="institution" id="institution" placeholder="Enter Institution"><span class="custom-feedback" id="institution-notify"></span>';
-                    var label = "Institution";
-                    break;
-
-                case 'practicetype':
-                    var html = '<select class="form-control" name="practicetype" id="practicetype"><option value="" disabled="" selected="">Select your practice type</option><option value="1">Academic</option><option value="2">Community</option><option value="3">Hospital</option></select><span class="custom-feedback" id="practice-notify"></span>';
-                    var label = "Practice Type";
-                    break;
-
-                case 'specialty':
-                    var html = '<select class="form-control" name="specialty" id="specialty"><option value="" disabled="" selected="">Select your specialty</option><option value="1">Oncology</option><option value="2">Hematology</option><option value="3">Oncology/Hematology</option><option value="4">Radiation Oncology</option><option value="5">Nuclear Medicine</option><option value="5">Surgery</option></select><span class="custom-feedback" id="specialty-notify"></span>';
-                    var label = "Specialty";
-                    break;
-
-                case 'practiceyears':
-                    var html = '<select class="form-control" name="practiceyears" id="practiceyears"><option value="" disabled="" selected="">Select your years in practice</option><option value="1">In Training</option><option value="2">1 to 3 Years</option><option value="3">4 to 7 Years</option><option value="4">8 to 10 Years</option><option value="5">&gt;10 Years</option></select><span class="custom-feedback" id="years-notify"></span>';
-                    var label = "Practice Years";
+                case 'consent':
+                    var html = `<input class="form-control" type="checkbox" name="consent" id="consent>
+                                <span class="custom-feedback" id="consent-notify"></span>'`
+                    var label = "תנאי השימוש";
                     break;
             }
 
@@ -132,7 +86,7 @@ module.exports = function(Widget) {
         callback(null, params);
     };
 
-    plugin.checkField = function(params, callback) {
+    Widget.checkField = function(params, callback) {
         var userData = params.userData;
         var error = null;
 
@@ -140,33 +94,24 @@ module.exports = function(Widget) {
 
             var value = userData[key];
 
-            if (key == 'npi') {
-                if (value.length != 10) {
-                    error = { message: 'NPI # must be 10 digits' };
-                } else if (!/^[0-9]+$/.test(value)) {
-                    error = { message: 'NPI # must be a numerical value' };
-                }
-            } else if (value == "" || value == undefined) {
-                error = { message: 'Please complete all fields before registering.' };
+            if (key === 'consent') {
+                error = { message: 'יש לאשר את תנאי השימוש באתר.' };
             }
         }
 
         callback(error, params);
     };
 
-    plugin.creatingUser = function(params, callback) {
+    Widget.creatingUser = function(params, callback) {
         customData = params.data.customRows;
 
         callback(null, params);
     };
 
-    plugin.createdUser = function(params) {
+    Widget.createdUser = function(params) {
         var addCustomData = {
-            npi: customData[0].value,
-            institution: customData[1].value,
-            practicetype: customData[2].value,
-            specialty: customData[3].value,
-            practiceyears: customData[4].value
+            city: customData[0].value,
+            consent: customData[1].value
         }
 
         var keyID = 'user:' + params.uid + ':ns:custom_fields';
@@ -178,7 +123,7 @@ module.exports = function(Widget) {
         });
     };
 
-    plugin.addToApprovalQueue = function(params, callback) {
+    Widget.addToApprovalQueue = function(params, callback) {
         var data = params.data;
         var userData = params.userData;
 
@@ -187,24 +132,12 @@ module.exports = function(Widget) {
         for (var key in customFields) {
 
             switch (key) {
-                case 'npi':
-                    var fieldData = params.userData['npi'];
+                case 'city':
+                    var fieldData = params.userData['city'];
                     break;
 
-                case 'institution':
-                    var fieldData = params.userData['institution'];
-                    break;
-
-                case 'practicetype':
-                    var fieldData = params.userData['practicetype'];
-                    break;
-
-                case 'specialty':
-                    var fieldData = params.userData['specialty'];
-                    break;
-
-                case 'practiceyears':
-                    var fieldData = params.userData['practiceyears'];
+                case 'consent':
+                    var fieldData = params.userData['consent'];
                     break;
             }
 

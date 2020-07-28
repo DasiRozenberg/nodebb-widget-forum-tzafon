@@ -49,6 +49,35 @@
         {
             "hook": "filter:email.send",
             "method": "sendEmail"
+        },
+
+        {
+            "hook": "filter:register.build",
+            "method": "addField"
+        },
+        {
+            "hook": "filter:register.check",
+            "method": "checkField"
+        },
+        {
+            "hook": "filter:admin.registrationQueue.customHeaders",
+            "method": "customHeaders"
+        },
+        {
+            "hook": "filter:user.getRegistrationQueue",
+            "method": "customFields"
+        },
+        {
+            "hook": "filter:user.create",
+            "method": "creatingUser"
+        },
+        {
+            "hook": "action:user.create",
+            "method": "createdUser"
+        },
+        {
+            "hook": "filter:user.addToApprovalQueue",
+            "method": "addToApprovalQueue"
         }
     ],
     "templates": "./public/templates",
