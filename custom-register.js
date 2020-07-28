@@ -58,17 +58,17 @@ module.exports = function(Widget) {
 
             switch (key) {
                 case 'city':
-                    var html = `<input class="form-control" type="text" name="city" id="city" placeholder="באיזו עיר אתה גר?">
+                    var html = `<input class="form-control" type="text" name="city" id="city" placeholder="הכנס עיר">
                                 <span class="custom-feedback" id="city-notify"></span>
                                 <span class="help-block">יש למלא את העיר שבה אתה גר</span>`;
                     var label = "עיר";
                     break;
 
                 case 'consent':
-                    var html = `<input type="checkbox" name="consent" id="consent">
+                    var html = `<input class="checkbox-inline" type="checkbox" name="consent" id="consent">
                                 <span class="custom-feedback" id="consent-notify"></span>
                                 <span class="consent-text">
-                                    קראתי את <a href="/topic/270">תקנון האתר</a> ואת <a href="/topic/269">מדיניות הפרטיות</a> של האתר ואני מאשר אותם.
+                                    אני מאשר שקראתי והבנתי את <a href="/topic/270">תקנון האתר</a> ואת <a href="/topic/269">מדיניות הפרטיות</a> של האתר.
                                 </span>`
                     var label = "תנאי השימוש";
                     break;
