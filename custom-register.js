@@ -3,10 +3,9 @@ const db = require.main.require('./src/database');
 
 module.exports = function(Widget) {
     var customFields = {
-            city: "",
-            consent: ""
-        },
-        customData = [];
+        city: "",
+        consent: ""
+    };
 
     Widget.initCutomRegister = function(params) {};
 
@@ -29,23 +28,6 @@ module.exports = function(Widget) {
         }
 
         callback(null, headers);
-    };
-
-    Widget.customFields = function(params, callback) {
-        var users = params.users.map(function(user) {
-
-            if (!user.customRows) {
-                user.customRows = [];
-
-                for (var key in customFields) {
-                    user.customRows.push({ value: customFields[key] });
-                }
-            }
-
-            return user;
-        });
-
-        callback(null, { users: users });
     };
 
     Widget.addField = function(params, callback) {
@@ -106,24 +88,40 @@ module.exports = function(Widget) {
     };
 
     Widget.creatingUser = function(params, callback) {
-        customData = params.data.customRows;
+        params.user.city = params.data.city;
 
         callback(null, params);
     };
 
     Widget.createdUser = function(params) {
         var addCustomData = {
-            city: customData[0].value,
-            consent: customData[1].value
+            city: params.data.city
         }
 
-        var keyID = 'user:' + params.uid + ':ns:custom_fields';
+        var keyID = 'user:' + params.user.uid + ':ns:custom_fields';
 
         db.setObject(keyID, addCustomData, function(err) {
             if (err) {
                 return callback(err);
             }
         });
+    };
+
+    Widget.customFields = function(params, callback) {
+        var users = params.users.map(function(user) {
+
+            if (!user.customRows) {
+                user.customRows = [];
+
+                for (var key in customFields) {
+                    user.customRows.push({ value: customFields[key] });
+                }
+            }
+
+            return user;
+        });
+
+        callback(null, { users: users });
     };
 
     Widget.addToApprovalQueue = function(params, callback) {
