@@ -13,6 +13,10 @@
 	</li>
 </ol>
 
+<div class="col-xs-offset-2">
+    <h3>לפרטים נוספים: 0583-22-00-90</h3>
+</div>
+
 <div class="alert alert-danger hidden" id="contact-notify">
     <strong>[[contactpage:contact-error]]</strong>
     <p></p>
@@ -20,10 +24,6 @@
 
 <div class="alert alert-success hidden" id="contact-notify-success">
     <p></p>
-</div>
-
-<div class="col-xs-offset-2">
-    <h3>לפרטים נוספים: 0583-22-00-90</h3>
 </div>
 
 <form id="contact-form" class="form-horizontal" role="form" method="post">
