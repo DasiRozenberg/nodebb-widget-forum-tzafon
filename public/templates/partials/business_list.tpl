@@ -1,4 +1,4 @@
-
+<!-- IF isBusiness -->
     <div class="col-xs-12">
         <div class="itemsContainer">
         <!-- IF !posts.length -->
@@ -90,3 +90,4 @@
         <!-- END posts -->
         </div>
     </div>
+<!-- END -->

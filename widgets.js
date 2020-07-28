@@ -37,10 +37,15 @@ module.exports = function(Widget) {
         const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : '').filter(item => item));
         const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : '').filter(item => item));
 
+        const isBusiness = widget.data.pluginType === 'business';
+        const isApartment = widget.data.pluginType === 'apartment';
+
         const data = {
             posts: postsData,
             subcategories: [...subcategories],
             cities: [...cities],
+            isBusiness,
+            isApartment,
             cid: cid,
             isadmin: isadmin,
             relative_path: nconf.get('relative_path'),
@@ -70,13 +75,8 @@ module.exports = function(Widget) {
 
         const topicsData = await topics.getRecentTopics(cid, widget.uid, 0, 10);
 
-        const isBusiness = widget.data.pluginType === 'business';
-        const isApartment = widget.data.pluginType === 'apartment';
-
         const data = {
             topics: topicsData.topics,
-            isBusiness,
-            isApartment,
             relative_path: nconf.get('relative_path'),
             loggedIn: !!widget.req.uid,
             config: {
