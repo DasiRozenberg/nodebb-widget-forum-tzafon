@@ -65,8 +65,11 @@ module.exports = function(Widget) {
                     break;
 
                 case 'consent':
-                    var html = `<input class="form-control" type="checkbox" name="consent" id="consent>
-                                <span class="custom-feedback" id="consent-notify"></span>'`
+                    var html = `<input type="checkbox" name="consent" id="consent">
+                                <span class="custom-feedback" id="consent-notify"></span>
+                                <span class="consent-text">
+                                    קראתי את <a href="/topic/270">תקנון האתר</a> ואת <a href="/topic/269">מדיניות הפרטיות</a> של האתר ואני מאשר אותם.
+                                </span>`
                     var label = "תנאי השימוש";
                     break;
             }
