@@ -107,7 +107,7 @@ module.exports = function(Widget) {
         });
     };
 
-    Widget.customFields = function(params, callback) {
+    Widget.getRegistrationQueue = function(params, callback) {
         var users = params.users.map(function(user) {
 
             if (!user.customRows) {

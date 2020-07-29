@@ -64,16 +64,16 @@
             "method": "customHeaders"
         },
         {
-            "hook": "filter:user.getRegistrationQueue",
-            "method": "customFields"
-        },
-        {
             "hook": "filter:user.create",
             "method": "creatingUser"
         },
         {
             "hook": "action:user.create",
             "method": "createdUser"
+        },
+        {
+            "hook": "filter:user.getRegistrationQueue",
+            "method": "getRegistrationQueue"
         },
         {
             "hook": "filter:user.addToApprovalQueue",
