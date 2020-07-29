@@ -35,7 +35,7 @@
 
 .business .item .second-hr {
     border: none;
-    border-bottom: 2px solid #F6A124;
+    border-bottom: 2px dashed #f6a124;
     margin: 2px 0 5px;
 }
 
