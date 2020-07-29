@@ -50,7 +50,7 @@ module.exports = function(Widget) {
                     var html = `<input class="checkbox-inline" type="checkbox" name="consent" id="consent">
                                 <span class="custom-feedback" id="consent-notify"></span>
                                 <span class="consent-text">
-                                    אני מאשר שקראתי והבנתי את <a href="/topic/270">תקנון האתר</a> ואת <a href="/topic/269">מדיניות הפרטיות</a> של האתר.
+                                    אני מאשר שקראתי והבנתי את <a href="/topic/270" target="_blank">תקנון האתר</a> ואת <a href="/topic/269" target="_blank">מדיניות הפרטיות</a> של האתר.
                                 </span>`
                     var label = "תנאי השימוש";
                     break;
