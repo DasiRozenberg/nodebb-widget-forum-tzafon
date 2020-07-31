@@ -80,9 +80,11 @@
                         <div class="carouselWrapper">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
+                                    <!-- IF posts.data.11 -->
                                     <div class="item active">
                                         {posts.data.11}
                                     </div>
+                                    <!-- END -->
                                     <!-- IF posts.data.12 -->
                                     <div class="item">
                                         {posts.data.12}
