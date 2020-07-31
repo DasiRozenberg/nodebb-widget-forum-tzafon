@@ -61,6 +61,11 @@
     margin-left: 5px;
 }
 
+.business .item .carouselWrapper {
+    position: relative;
+    width: 100%;
+}
+
 .business i.no-data {
     opacity: 0;
 }

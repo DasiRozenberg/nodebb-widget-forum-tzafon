@@ -78,7 +78,14 @@
                         <!-- END -->
 
                         <div>
-                        <div class="homepage-header">
+                            תמונות
+                            {posts.data.11}
+                            {posts.data.12}
+                            {posts.data.13}
+                            {posts.data.14}
+                        </div>
+                        <div>
+                        <div class="carouselWrapper">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
