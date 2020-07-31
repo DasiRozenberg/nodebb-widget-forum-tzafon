@@ -79,31 +79,31 @@
 
                         <div>
                             תמונות
-                            {posts.data.11}
-                            {posts.data.12}
-                            {posts.data.13}
-                            {posts.data.14}
+                            11:{posts.data.11}
+                            12:{posts.data.12}
+                            13:{posts.data.13}
+                            14:{posts.data.14}
                         </div>
                         <div>
                         <div class="carouselWrapper">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        {posts.data.11}
+                                        11:{posts.data.11}
                                     </div>
                                     <!-- IF !posts.data.12 -->
                                     <div class="item">
-                                        {posts.data.12}
+                                        12:{posts.data.12}
                                     </div>
                                     <!-- END -->
                                     <!-- IF !posts.data.13 -->
                                     <div class="item">
-                                        {posts.data.13}
+                                        13:{posts.data.13}
                                     </div>
                                     <!-- END -->
                                     <!-- IF !posts.data.14 -->
                                     <div class="item">
-                                        {posts.data.14}
+                                        14:{posts.data.14}
                                     </div>
                                     <!-- END -->
                                 </div>
