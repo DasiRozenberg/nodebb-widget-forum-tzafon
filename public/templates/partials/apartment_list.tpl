@@ -78,10 +78,37 @@
                         <!-- END -->
 
                         <div>
-                            {posts.data.11}
-                            {posts.data.12}
-                            {posts.data.13}
-                            {posts.data.14}
+                        <div class="homepage-header">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        {posts.data.11}
+                                    </div>
+                                    <!-- IF !posts.data.12 -->
+                                    <div class="item">
+                                        {posts.data.12}
+                                    </div>
+                                    <!-- END -->
+                                    <!-- IF !posts.data.13 -->
+                                    <div class="item">
+                                        {posts.data.13}
+                                    </div>
+                                    <!-- END -->
+                                    <!-- IF !posts.data.14 -->
+                                    <div class="item">
+                                        {posts.data.14}
+                                    </div>
+                                    <!-- END -->
+                                </div>
+                                <a class="left carousel-control" role="button">
+                                    <span class="fa fa-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" role="button">
+                                    <span class="fa fa-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
