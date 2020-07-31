@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <div class="filter-container">
+    <div class="filter-container apartmentFilter">
         <select id="apartmentType">
             <option value="">בחר סוג דירה</option>
             <!-- BEGIN apartmentTypes -->

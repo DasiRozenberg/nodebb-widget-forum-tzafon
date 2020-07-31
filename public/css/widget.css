@@ -19,7 +19,7 @@
 }
 
 .business .itemsContainer.apartmentContainer .businessItem {
-    height: 300px;
+    height: 380px;
 }
 
 .business .businessItem .item-header {
@@ -64,6 +64,18 @@
 .business .businessItem .carouselWrapper {
     position: relative;
     width: 100%;
+}
+
+.business .businessItem .carouselWrapper .carousel {
+    width: 100%;
+}
+
+.business .businessItem .carouselWrapper .carousel img {
+    width: 100%;
+}
+
+.business .businessItem .carouselWrapper .carousel p {
+    display: none;
 }
 
 .business i.no-data {
@@ -144,6 +156,10 @@
     line-height: 1.5em;
     height: 2em;
     width: 14em;
+}
+
+.business .filter-container.apartmentFilter select {
+    width: 9em;
 }
 
 .business .itemsContainer .no-posts-container {
