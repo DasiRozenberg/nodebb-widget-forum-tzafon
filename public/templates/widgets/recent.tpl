@@ -40,7 +40,7 @@
 		processHtml(recent);
 
 		function processHtml(html) {
-			if($('.category .business').length === 0) {
+			if($('.page-category').length > 0 && $('.category .business').length === 0) {
 				setTimeout(function() {
 					processHtml(html);
 				});
