@@ -18,8 +18,31 @@
     height: 170px;
 }
 
-.business .itemsContainer.apartmentContainer .businessItem {
-    height: calc(150px + (100vw / 4 - 50px));
+@media (min-width: 1200px) {
+    .business .itemsContainer.apartmentContainer .businessItem {
+        height: 410px;
+    }
+    .business .businessItem .carouselWrapper {
+        height: 175px;
+    }
+}
+
+@media (min-width: 992px) {
+    .business .itemsContainer.apartmentContainer .businessItem {
+        height: 380px;
+    }
+    .business .businessItem .carouselWrapper {
+        height: 143px;
+    }
+}
+
+@media (min-width: 768px) {
+    .business .itemsContainer.apartmentContainer .businessItem {
+        height: 440px;
+    }
+    .business .businessItem .carouselWrapper {
+        height: 205px;
+    }
 }
 
 .business .businessItem .item-header {
@@ -64,7 +87,6 @@
 .business .businessItem .carouselWrapper {
     position: relative;
     width: 100%;
-    height: calc(100vw / 4 - 50px);
 }
 
 .business .businessItem .carouselWrapper .carousel-control .fa {

@@ -14,7 +14,7 @@
     <!-- END -->
 
     <!-- BEGIN posts -->
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-xs-6">
             <div class="businessItem">
                 <div data-pid="{posts.pid}" class="clearfix widget-posts">
                     <div class="item-header apartmentType">
