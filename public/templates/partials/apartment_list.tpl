@@ -86,17 +86,17 @@
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.12 -->
-                                    <div class="item">
+                                    <div class="item active">
                                         {posts.data.12}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.13 -->
-                                    <div class="item">
+                                    <div class="item active">
                                         {posts.data.13}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.14 -->
-                                    <div class="item">
+                                    <div class="item active">
                                         {posts.data.14}
                                     </div>
                                     <!-- END -->
