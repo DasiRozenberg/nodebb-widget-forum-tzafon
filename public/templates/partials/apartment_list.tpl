@@ -78,7 +78,7 @@
                         <!-- END -->
 
                         <div class="carouselWrapper">
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div id="myCarousel{posts.pid}" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <!-- IF posts.data.11 -->
                                     <div class="item active">

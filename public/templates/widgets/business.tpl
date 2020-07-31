@@ -44,7 +44,7 @@
 				$this.attr('title', $this.text());
 			});
 
-			$('.item', html).click(function (e){
+			$('.businessItem', html).click(function (e){
 				$('.popup', this).show();
 			});
 			$('.popup-close i').click(function (e){
