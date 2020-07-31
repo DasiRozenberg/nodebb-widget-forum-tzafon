@@ -91,17 +91,17 @@
                                     <div class="item active">
                                         11:{posts.data.11}
                                     </div>
-                                    <!-- IF !posts.data.12 -->
+                                    <!-- IF posts.data.12 -->
                                     <div class="item">
                                         12:{posts.data.12}
                                     </div>
                                     <!-- END -->
-                                    <!-- IF !posts.data.13 -->
+                                    <!-- IF posts.data.13 -->
                                     <div class="item">
                                         13:{posts.data.13}
                                     </div>
                                     <!-- END -->
-                                    <!-- IF !posts.data.14 -->
+                                    <!-- IF posts.data.14 -->
                                     <div class="item">
                                         14:{posts.data.14}
                                     </div>

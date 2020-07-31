@@ -34,16 +34,28 @@ module.exports = function(Widget) {
         }
         const isadmin = await user.isAdministrator(widget.uid);
 
-        const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : '').filter(item => item));
-        const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : '').filter(item => item));
-
         const isBusiness = widget.data.pluginType === 'business';
         const isApartment = widget.data.pluginType === 'apartment';
 
+        const filter = {};
+
+        if (isBusiness) {
+            const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : '').filter(item => item));
+            const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : '').filter(item => item));
+
+            filter.subcategories = [...subcategories];
+            filter.cities = [...cities];
+        } else {
+            const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : '').filter(item => item));
+            const cities = new Set(postsData.map(item => item.data.length > 4 ? item.data[4] : '').filter(item => item));
+
+            filter.subcategories = [...subcategories];
+            filter.cities = [...cities];
+        }
+
         const data = {
             posts: postsData,
-            subcategories: [...subcategories],
-            cities: [...cities],
+            ...filter,
             isBusiness,
             isApartment,
             cid: cid,
