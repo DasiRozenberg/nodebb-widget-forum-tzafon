@@ -15,7 +15,7 @@
 
     <!-- BEGIN posts -->
         <div class="col-sm-4">
-            <div class="item">
+            <div class="businessItem">
                 <div data-pid="{posts.pid}" class="clearfix widget-posts">
                     <div class="item-header">
                         {posts.data.1}
