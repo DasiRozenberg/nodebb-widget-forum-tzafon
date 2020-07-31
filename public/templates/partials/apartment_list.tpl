@@ -76,14 +76,6 @@
                         </span>
                         <br />
                         <!-- END -->
-
-                        <div>
-                            תמונות
-                            11:{posts.data.11}
-                            12:{posts.data.12}
-                            13:{posts.data.13}
-                            14:{posts.data.14}
-                        </div>
                         <div>
                         <div class="carouselWrapper">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
