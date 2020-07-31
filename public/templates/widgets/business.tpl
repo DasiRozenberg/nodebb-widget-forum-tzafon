@@ -45,7 +45,7 @@
 			});
 			html.find('.carousel').each(function (){
 				var $this = $(this);
-				$this.find('.item:first-child').addClass('.active');
+				$this.find('.item:first-child').addClass('active');
 			});
 			$('.businessItem', html).click(function (e){
 				$('.popup', this).show();
@@ -58,7 +58,7 @@
 			$('.filter-container select', html).change(function (e){
 				var filters = {};
 				filters.sub = $('#subcategory').val();
-				filters.city = $('#city').val();
+				filters.address = $('#city').val();
 				filters.apartmentType = $('#apartmentType').val();
 				filters.bedNum = $('#bedNum').val();
 

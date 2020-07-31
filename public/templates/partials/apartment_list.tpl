@@ -24,7 +24,7 @@
                     <hr class="second-hr" />
                     <div class="item-body">
                         <b>עיר:</b>
-                        <span class="city">
+                        <span class="address">
                             {posts.data.2}
                         </span>
                         <br />
