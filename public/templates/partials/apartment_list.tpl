@@ -64,16 +64,25 @@
                             {posts.data.8}
                         </span>
                         <br />
+                        <!-- IF !posts.data.9 -->
                         <span class="sub">
                             {posts.data.9}
                         </span>
                         <br />
+                        <!-- END -->
+                        <!-- IF !posts.data.10 -->
                         <span class="sub">
                             {posts.data.10}
                         </span>
                         <br />
+                        <!-- END -->
 
-                        <div>תמונות</div>
+                        <div>
+                            {posts.data.11}
+                            {posts.data.12}
+                            {posts.data.13}
+                            {posts.data.14}
+                        </div>
                     </div>
                 </div>
                 <div class="popup" style="display:none">
