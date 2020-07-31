@@ -17,85 +17,85 @@
         <div class="col-sm-4">
             <div class="businessItem">
                 <div data-pid="{posts.pid}" class="clearfix widget-posts">
-                    <div class="item-header">
+                    <div class="item-header apartmentType">
                         {posts.data.1}
                     </div>
                     <hr class="first-hr" />
                     <hr class="second-hr" />
                     <div class="item-body">
                         <b>עיר:</b>
-                        <span class="sub">
+                        <span class="city">
                             {posts.data.2}
                         </span>
                         <br />
 
                         <b>כתובת:</b>
-                        <span class="sub">
+                        <span>
                             {posts.data.3}
                         </span>
                         <br />
 
                         <b>מס' חדרים:</b>
-                        <span class="sub">
+                        <span>
                             {posts.data.4}
                         </span>
                         <br />
 
                         <b>מס' מיטות:</b>
-                        <span class="sub">
+                        <span class="bedNum">
                             {posts.data.5}
                         </span>
                         <br />
 
                         <b>מחיר ללילה:</b>
-                        <span class="sub">
+                        <span>
                             {posts.data.6}
                         </span>
                         <br />
 
                         <b>טלפון ליצירת קשר:</b>
-                        <span class="sub">
+                        <span>
                             {posts.data.7}
                         </span>
                         <br />
 
                         <b>פרטים נוספים:</b>
-                        <span class="sub">
+                        <span>
                             {posts.data.8}
                         </span>
                         <br />
                         <!-- IF !posts.data.9 -->
-                        <span class="sub">
+                        <span>
                             {posts.data.9}
                         </span>
                         <br />
                         <!-- END -->
                         <!-- IF !posts.data.10 -->
-                        <span class="sub">
+                        <span>
                             {posts.data.10}
                         </span>
                         <br />
                         <!-- END -->
-                        <div>
+
                         <div class="carouselWrapper">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        11:{posts.data.11}
+                                        {posts.data.11}
                                     </div>
                                     <!-- IF posts.data.12 -->
                                     <div class="item">
-                                        12:{posts.data.12}
+                                        {posts.data.12}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.13 -->
                                     <div class="item">
-                                        13:{posts.data.13}
+                                        {posts.data.13}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.14 -->
                                     <div class="item">
-                                        14:{posts.data.14}
+                                        {posts.data.14}
                                     </div>
                                     <!-- END -->
                                 </div>

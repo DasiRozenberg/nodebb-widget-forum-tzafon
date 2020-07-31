@@ -52,14 +52,18 @@
 				e.stopImmediatePropagation();
 			});
 			$('.filter-container select', html).change(function (e){
-				var subcategory = $('#subcategory').val();
-				var city = $('#city').val();
+				var filters = {};
+				filters.sub = $('#subcategory').val();
+				filters.city = $('#city').val();
+				filters.apartmentType = $('#apartmentType').val();
+				filters.bedNum = $('#bedNum').val();
+
 				var items = $('.businessItem').parent();
-				if (subcategory) {
-					items = items.filter($('.sub:contains('+subcategory+')').parents('.businessItem').parent());
-				}
-				if (city) {
-					items = items.filter($('.address:contains('+city+')').parents('.businessItem').parent());
+
+				for (var filter in filters) {
+					if (filters[filter]) {
+						items = items.filter($('.'+filter+':contains('+filters[filter]+')').parents('.businessItem').parent());
+					}
 				}
 				$(".businessItem").parent().not(items).hide();
 				items.show();
