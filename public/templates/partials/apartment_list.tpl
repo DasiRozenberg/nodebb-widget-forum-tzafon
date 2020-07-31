@@ -14,7 +14,7 @@
     <!-- END -->
 
     <!-- BEGIN posts -->
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="item">
                 <div data-pid="{posts.pid}" class="clearfix widget-posts">
                     <div class="item-header">
@@ -23,26 +23,57 @@
                     <hr class="first-hr" />
                     <hr class="second-hr" />
                     <div class="item-body">
-                        <i class="fa fa-th-large"></i>
+                        <b>עיר:</b>
                         <span class="sub">
                             {posts.data.2}
-                            <!-- IF !posts.data.2 --><i class="no-data">אין נתונים</i><!-- END -->
                         </span>
                         <br />
 
-                        <i class="fa fa-map-marker"></i>
-                        <span class="address">
-                            {posts.data.4}, {posts.data.5}
-                            <!-- IF !posts.data.5 --><i class="no-data">אין נתונים</i><!-- END -->
+                        <b>כתובת:</b>
+                        <span class="sub">
+                            {posts.data.3}
                         </span>
                         <br />
 
-                        <i class="fa fa-clock-o"></i>
-                        <span class="hours">
+                        <b>מס' חדרים:</b>
+                        <span class="sub">
+                            {posts.data.4}
+                        </span>
+                        <br />
+
+                        <b>מס' מיטות:</b>
+                        <span class="sub">
+                            {posts.data.5}
+                        </span>
+                        <br />
+
+                        <b>מחיר ללילה:</b>
+                        <span class="sub">
                             {posts.data.6}
-                            <!-- IF !posts.data.6 --><i class="no-data">אין נתונים</i><!-- END -->
                         </span>
                         <br />
+
+                        <b>טלפון ליצירת קשר:</b>
+                        <span class="sub">
+                            {posts.data.7}
+                        </span>
+                        <br />
+
+                        <b>פרטים נוספים:</b>
+                        <span class="sub">
+                            {posts.data.8}
+                        </span>
+                        <br />
+                        <span class="sub">
+                            {posts.data.9}
+                        </span>
+                        <br />
+                        <span class="sub">
+                            {posts.data.10}
+                        </span>
+                        <br />
+
+                        <div>תמונות</div>
                     </div>
                 </div>
                 <div class="popup" style="display:none">
