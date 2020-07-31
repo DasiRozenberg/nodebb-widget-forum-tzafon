@@ -81,22 +81,22 @@
                             <div id="myCarousel{posts.pid}" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <!-- IF posts.data.11 -->
-                                    <div class="item active">
+                                    <div class="item">
                                         {posts.data.11}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.12 -->
-                                    <div class="item active">
+                                    <div class="item">
                                         {posts.data.12}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.13 -->
-                                    <div class="item active">
+                                    <div class="item">
                                         {posts.data.13}
                                     </div>
                                     <!-- END -->
                                     <!-- IF posts.data.14 -->
-                                    <div class="item active">
+                                    <div class="item">
                                         {posts.data.14}
                                     </div>
                                     <!-- END -->

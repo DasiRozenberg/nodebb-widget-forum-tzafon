@@ -43,7 +43,10 @@
 				var $this = $(this);
 				$this.attr('title', $this.text());
 			});
-
+			html.find('.carousel').each(function (){
+				var $this = $(this);
+				$this.find('.item:first-child').addClass('.active');
+			});
 			$('.businessItem', html).click(function (e){
 				$('.popup', this).show();
 			});
@@ -51,6 +54,7 @@
 				$(this).parents('.popup').hide();
 				e.stopImmediatePropagation();
 			});
+
 			$('.filter-container select', html).change(function (e){
 				var filters = {};
 				filters.sub = $('#subcategory').val();
