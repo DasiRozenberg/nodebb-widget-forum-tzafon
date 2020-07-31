@@ -19,7 +19,7 @@
 }
 
 .business .itemsContainer.apartmentContainer .businessItem {
-    height: 380px;
+    height: calc(150px + (100vw / 4 - 50px));
 }
 
 .business .businessItem .item-header {
