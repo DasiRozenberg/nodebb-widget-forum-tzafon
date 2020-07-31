@@ -101,11 +101,11 @@
                                     </div>
                                     <!-- END -->
                                 </div>
-                                <a class="left carousel-control" role="button">
+                                <a class="left carousel-control" role="button" data-carousel="myCarousel{posts.pid}">
                                     <span class="fa fa-chevron-left"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="right carousel-control" role="button">
+                                <a class="right carousel-control" role="button" data-carousel="myCarousel{posts.pid}">
                                     <span class="fa fa-chevron-right"></span>
                                     <span class="sr-only">Next</span>
                                 </a>

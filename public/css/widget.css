@@ -67,6 +67,12 @@
     height: 150px;
 }
 
+.business .businessItem .carouselWrapper .carousel-control .fa {
+    position: relative;
+    color: #F6A124;
+    top: 45%;
+}
+
 .business .businessItem .carouselWrapper .carousel {
     width: 100%;
 }
