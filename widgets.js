@@ -109,10 +109,9 @@ module.exports = function(Widget) {
 
     function isVisibleInCategory(widget) {
         const cids = getCidsArray(widget);
-        console.log(cids, widget.templateData.template.category, widget.templateData.template.topic)
         return !(cids.length) ||
             ((widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(parseInt(widget.templateData.cid, 10))) ||
-            (!(widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(0));
+            (!(widget.templateData.template.category || widget.templateData.template.topic) && cids.includes(-1));
     }
 
     Widget.defineWidgets = async function(widgets) {
