@@ -7,10 +7,11 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
 
         var contactMsgTemplates = {
             'ad': "שם העסק:\nשרות:\nעיר:\nרחוב:\nשעות פתיחה:\nטלפון:\nהערות:\n",
-
+            'apartment': "סוג דירה: דירה / צימר / חדרי אירוח \nכתובת:\nמס' חדרים:\nמס' מיטות:\nמחיר ללילה-\nמייל או טלפון ליצירת קשר:\nפרטים נוספים על המקום:\n\n\nניתן להוסיף עד 4 תמונות.\n"
         };
         var contactSubjectTemplates = {
             'ad': "פרסום/ שדרוג עסק",
+            'apartment': "הוספת צימרים וחדרי אירוח"
         };
         var mode = location.href.split('mode=')[1];
         $('#message').val(contactMsgTemplates[mode]);
