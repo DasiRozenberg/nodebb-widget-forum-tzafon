@@ -20,6 +20,11 @@
             "hook": "filter:widget.render:recentviewtzafon",
             "method": "renderRecentViewWidget"
         },
+        {
+            "hook": "filter:widget.render:htmltzafon",
+            "method": "renderHTMLWidget"
+        },
+
 
         {
             "hook": "filter:widgets.getAreas",

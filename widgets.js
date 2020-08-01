@@ -102,6 +102,15 @@ module.exports = function(Widget) {
         return widget;
     };
 
+    Widget.renderHTMLWidget = async function(widget) {
+        if (!isVisibleInCategory(widget)) {
+            return null;
+        }
+        const tpl = widget.data ? widget.data.html : '';
+        widget.html = await benchpressjs.compileRender(String(tpl), widget.templateData);
+        return widget;
+    };
+
     function getCidsArray(widget) {
         const cids = widget.data.showCid || '';
         return cids.split(',').map(c => parseInt(c, 10)).filter(Boolean);
@@ -127,6 +136,12 @@ module.exports = function(Widget) {
                 name: 'Recent View Tzafon',
                 description: 'Renders the /recent page',
                 content: 'admin/recenttzafon',
+            },
+            {
+                widget: 'htmltzafon',
+                name: 'HTML Tzafon',
+                description: 'Renders a html plugin',
+                content: 'admin/html',
             },
         ];
 
