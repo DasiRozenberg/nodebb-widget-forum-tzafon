@@ -2,6 +2,7 @@ const nconf = require.main.require('nconf');
 const categories = require.main.require('./src/categories');
 const user = require.main.require('./src/user');
 const topics = require.main.require('./src/topics');
+const benchpressjs = require.main.require('benchpressjs');
 
 module.exports = function(Widget) {
     let app;
