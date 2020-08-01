@@ -118,12 +118,9 @@
                         <div class="popup-close">
                             <i class="fa fa-close"></i>
                         </div>
-                        <div class="popup-header">
-                            {posts.data.1}
-                        </div>
                         <div class="popup-body">
                             <div class="carouselWrapper">
-                                <div id="myCarousel{posts.pid}" class="carousel slide" data-ride="carousel">
+                                <div id="myCarousel{posts.pid}2" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <!-- IF posts.data.11 -->
                                         <div class="item">
@@ -146,11 +143,11 @@
                                         </div>
                                         <!-- END -->
                                     </div>
-                                    <a class="left carousel-control" role="button" data-carousel="myCarousel{posts.pid}">
+                                    <a class="left carousel-control" role="button" data-carousel="myCarousel{posts.pid}2">
                                         <span class="fa fa-chevron-left"></span>
                                         <span class="sr-only">Previous</span>
                                     </a>
-                                    <a class="right carousel-control" role="button" data-carousel="myCarousel{posts.pid}">
+                                    <a class="right carousel-control" role="button" data-carousel="myCarousel{posts.pid}2">
                                         <span class="fa fa-chevron-right"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
