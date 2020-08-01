@@ -15,7 +15,12 @@
 }
 
 .business .itemsContainer.businessContainer .businessItem {
+    cursor: pointer;
     height: 170px;
+}
+
+.business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
+    cursor: pointer;
 }
 
 @media (min-width: 1200px) {
