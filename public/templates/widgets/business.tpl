@@ -1,5 +1,5 @@
 <div class="business col-lg-9 col-sm-12" data-isadmin="{isadmin}">
-	<div class="businessContainer row" data-cid="{cid}">
+	<div class="row" data-cid="{cid}">
 		<!-- IF isBusiness -->
 			<!-- IMPORT partials/business_header.tpl -->
 		<!-- END -->
