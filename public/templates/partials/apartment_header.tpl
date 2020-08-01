@@ -19,6 +19,6 @@
             <!-- END bedNums -->
         </select>
         <div class="flex-fill"></div>
-        <a class="contact" href="/contact?mode=ad">פרסום ועדכון עסק</a>
+        <a class="contact" href="/contact?mode=apartment">הוספת צימרים וחדרי אירוח</a>
     </div>
 </div>

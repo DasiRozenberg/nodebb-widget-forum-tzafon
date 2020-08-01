@@ -47,8 +47,8 @@
 				var $this = $(this);
 				$this.find('.item:first-child').addClass('active');
 			});
-			$('.businessItem', html).click(function (e){
-				$('.popup', this).show();
+			$('.businessContainer .businessItem .item-body, .apartmentContainer .businessItem .item-body .carouselWrapper', html).click(function (e){
+				$(this).parents('.businessItem').find('.popup').show();
 			});
 			$('.popup-close i').click(function (e){
 				$(this).parents('.popup').hide();
