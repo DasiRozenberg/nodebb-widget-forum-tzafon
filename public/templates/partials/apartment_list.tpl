@@ -64,13 +64,13 @@
                             {posts.data.8}
                         </span>
                         <br />
-                        <!-- IF !posts.data.9 -->
+                        <!-- IF posts.data.9 -->
                         <span>
                             {posts.data.9}
                         </span>
                         <br />
                         <!-- END -->
-                        <!-- IF !posts.data.10 -->
+                        <!-- IF posts.data.10 -->
                         <span>
                             {posts.data.10}
                         </span>
