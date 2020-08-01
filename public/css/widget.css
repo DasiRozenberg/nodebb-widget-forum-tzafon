@@ -161,7 +161,7 @@
     padding-top: 0px;
 }
 
-.business .businessItem .popup-body .fa {
+.business .itemsContainer.businessContainer .businessItem .popup-body .fa {
     padding: 5px;
     background: #F6A124;
     border-radius: 50%;
