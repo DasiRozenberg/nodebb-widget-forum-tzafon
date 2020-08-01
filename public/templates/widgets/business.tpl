@@ -48,7 +48,9 @@
 				$this.find('.item:first-child').addClass('active');
 			});
 			$('.businessContainer .businessItem .item-body, .apartmentContainer .businessItem .item-body .carouselWrapper', html).click(function (e){
-				$(this).parents('.businessItem').find('.popup').show();
+				if ($(e.target).parents('.left, .right').length === 0) {
+					$(this).parents('.businessItem').find('.popup').show();
+				}
 			});
 			$('.popup-close i').click(function (e){
 				$(this).parents('.popup').hide();
