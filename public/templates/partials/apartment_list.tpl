@@ -64,27 +64,22 @@
                             {posts.data.8}
                         </span>
                         <br />
-                        <!-- IF posts.data.9 -->
                         <span>
                             {posts.data.9}
                         </span>
                         <br />
-                        <!-- END -->
-                        <!-- IF posts.data.10 -->
                         <span>
                             {posts.data.10}
                         </span>
                         <br />
-                        <!-- END -->
+                        <span>
+                            {posts.data.11}
+                        </span>
+                        <br />
 
                         <div class="carouselWrapper">
                             <div id="myCarousel{posts.pid}" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    <!-- IF posts.data.11 -->
-                                    <div class="item">
-                                        {posts.data.11}
-                                    </div>
-                                    <!-- END -->
                                     <!-- IF posts.data.12 -->
                                     <div class="item">
                                         {posts.data.12}
@@ -98,6 +93,11 @@
                                     <!-- IF posts.data.14 -->
                                     <div class="item">
                                         {posts.data.14}
+                                    </div>
+                                    <!-- END -->
+                                    <!-- IF posts.data.15 -->
+                                    <div class="item">
+                                        {posts.data.15}
                                     </div>
                                     <!-- END -->
                                 </div>
@@ -122,11 +122,6 @@
                             <div class="carouselWrapper">
                                 <div id="myCarousel{posts.pid}2" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <!-- IF posts.data.11 -->
-                                        <div class="item">
-                                            {posts.data.11}
-                                        </div>
-                                        <!-- END -->
                                         <!-- IF posts.data.12 -->
                                         <div class="item">
                                             {posts.data.12}
@@ -140,6 +135,11 @@
                                         <!-- IF posts.data.14 -->
                                         <div class="item">
                                             {posts.data.14}
+                                        </div>
+                                        <!-- END -->
+                                        <!-- IF posts.data.15 -->
+                                        <div class="item">
+                                            {posts.data.15}
                                         </div>
                                         <!-- END -->
                                     </div>
