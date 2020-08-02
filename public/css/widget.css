@@ -29,8 +29,8 @@
     .business .itemsContainer.apartmentContainer .businessItem {
         height: 415px;
     }
-    .business .businessItem .carouselWrapper {
-        height: 205px;
+    .business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
+        height: 139px;
     }
 }
 
@@ -38,8 +38,8 @@
     .business .itemsContainer.apartmentContainer .businessItem {
         height: 470px;
     }
-    .business .businessItem .carouselWrapper {
-        height: 143px;
+    .business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
+        height: 194px;
     }
 }
 
@@ -47,8 +47,8 @@
     .business .itemsContainer.apartmentContainer .businessItem {
         height: 447px;
     }
-    .business .businessItem .carouselWrapper {
-        height: 175px;
+    .business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
+        height: 171px;
     }
 }
 
