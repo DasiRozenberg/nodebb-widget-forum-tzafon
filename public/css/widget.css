@@ -12,6 +12,7 @@
     padding: 0 10px;
     margin: 10px 0;
     cursor: pointer;
+    height: 492px;
 }
 
 .business .itemsContainer.businessContainer .businessItem {
@@ -21,32 +22,33 @@
 
 .business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
     cursor: pointer;
+    height: 215px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
     .business .itemsContainer.apartmentContainer .businessItem {
-        height: 410px;
+        height: 415px;
     }
     .business .businessItem .carouselWrapper {
-        height: 175px;
+        height: 205px;
     }
 }
 
 @media (min-width: 992px) {
     .business .itemsContainer.apartmentContainer .businessItem {
-        height: 380px;
+        height: 470px;
     }
     .business .businessItem .carouselWrapper {
         height: 143px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .business .itemsContainer.apartmentContainer .businessItem {
-        height: 440px;
+        height: 447px;
     }
     .business .businessItem .carouselWrapper {
-        height: 205px;
+        height: 175px;
     }
 }
 
