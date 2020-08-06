@@ -81,7 +81,7 @@ module.exports = function(Widget) {
             return res.status(400).json({ success: false, msg: '[[contactpage:error.incomplete]]' });
         }
 
-        const uploadedFile = req.files.file;
+        const uploadedFile = req.files && req.files.file;
 
         if (ContactPage.reCaptchaPubKey) {
             if (!req.body['g-recaptcha-response']) {
@@ -130,9 +130,11 @@ module.exports = function(Widget) {
 
     function addAttachment(mailData) {
         const uploadedFile = mailData._raw.uploadedFile;
-        mailData.attachments = [{
-            path: uploadedFile.path
-        }];
+        if (uploadedFile) {
+            mailData.attachments = [{
+                path: uploadedFile.path
+            }];
+        }
     }
 
     function renderAdmin(req, res) {
