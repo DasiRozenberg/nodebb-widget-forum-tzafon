@@ -59,8 +59,8 @@ module.exports = function(Widget) {
         } else if (isAd) {
 
         } else if (isAdWithFilter) {
-            const subcategories = new Set(postsData.map(item => item.data.length > 2 ? item.data[2] : '').filter(item => item));
-            const cities = new Set(postsData.map(item => item.data.length > 5 ? item.data[5] : '').filter(item => item));
+            const subcategories = new Set(postsData.map(item => item.data.length > 5 ? item.data[5] : '').filter(item => item));
+            const cities = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : '').filter(item => item));
 
             filter.subcategories = [...subcategories];
             filter.cities = [...cities];
