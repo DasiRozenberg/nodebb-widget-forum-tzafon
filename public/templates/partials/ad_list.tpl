@@ -25,7 +25,9 @@
                         <span class="adHeader">
                             {posts.data.2}
                             <br />
-                            {posts.data.3}
+                            <span class="sub">
+                                {posts.data.3}
+                            </span>
                         </span>
                         <br />
 
@@ -33,6 +35,10 @@
                             {posts.data.4}
                         </span>
                         <br />
+
+                        <span class="address hidden">
+                            {posts.data.5}
+                        </span>
                     </div>
                 </div>
             </div>

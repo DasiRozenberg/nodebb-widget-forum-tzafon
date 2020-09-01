@@ -17,4 +17,5 @@
 	<option value="business">Business</option>
 	<option value="apartment">Apartment</option>
 	<option value="ad">Ad</option>
+	<option value="adWithFilter">Ad With Filter</option>
 </select>		

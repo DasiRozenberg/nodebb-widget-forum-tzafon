@@ -8,7 +8,7 @@
 			<!-- IMPORT partials/apartment_header.tpl -->
 		<!-- END -->
 
-		<!-- IF isAd -->
+		<!-- IF isAdWithFilter -->
 			<!-- IMPORT partials/ad_header.tpl -->
 		<!-- END -->
 
@@ -22,6 +22,10 @@
 		<!-- END -->
 
 		<!-- IF isAd -->
+			<!-- IMPORT partials/ad_list.tpl -->
+		<!-- END -->
+
+		<!-- IF isAdWithFilter -->
 			<!-- IMPORT partials/ad_list.tpl -->
 		<!-- END -->
 

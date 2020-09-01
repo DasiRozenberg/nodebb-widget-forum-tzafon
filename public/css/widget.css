@@ -138,6 +138,10 @@
     opacity: 0;
 }
 
+.business .hidden {
+    visibility: collapse;
+}
+
 .business .businessItem .popup {
     position: fixed;
     top: 0;

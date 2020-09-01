@@ -11,7 +11,8 @@ define('forum/contact', ['translator', 'https://www.google.com/recaptcha/api.js?
         };
         var contactSubjectTemplates = {
             'ad': "פרסום/ שדרוג עסק",
-            'apartment': "הוספת צימרים וחדרי אירוח"
+            'apartment': "הוספת צימרים וחדרי אירוח",
+            'premium': 'הצטרפות לפרימיום',
         };
         var mode = location.href.split('mode=')[1];
         $('#message').val(contactMsgTemplates[mode]);
