@@ -21,7 +21,6 @@
                         {posts.data.1}
                     </div>
                     <hr class="first-hr" />
-                    <hr class="second-hr" />
                     <div class="item-body">
                         <span class="adHeader">
                             {posts.data.2}
