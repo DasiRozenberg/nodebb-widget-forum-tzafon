@@ -64,6 +64,10 @@
     overflow: hidden;
 }
 
+.business .itemsContainer.adContainer .businessItem .item-header {
+    height: 150px;
+}
+
 .business .businessItem .first-hr {
     border: none;
     margin: 0;
@@ -112,6 +116,10 @@
 
 .business .businessItem .carouselWrapper .carousel p {
     display: none;
+}
+
+.business .businessItem .adHeader {
+    font-size: 1.5em;
 }
 
 .business i.no-data {

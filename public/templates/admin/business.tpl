@@ -16,4 +16,5 @@
 	<option value="" disabled selected>Choose Type</option>
 	<option value="business">Business</option>
 	<option value="apartment">Apartment</option>
+	<option value="ad">Ad</option>
 </select>		

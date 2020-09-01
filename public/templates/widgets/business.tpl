@@ -8,6 +8,10 @@
 			<!-- IMPORT partials/apartment_header.tpl -->
 		<!-- END -->
 
+		<!-- IF isAd -->
+			<!-- IMPORT partials/ad_header.tpl -->
+		<!-- END -->
+
 
 		<!-- IF isBusiness -->
 			<!-- IMPORT partials/business_list.tpl -->
@@ -15,6 +19,10 @@
 
 		<!-- IF isApartment -->
 			<!-- IMPORT partials/apartment_list.tpl -->
+		<!-- END -->
+
+		<!-- IF isAd -->
+			<!-- IMPORT partials/ad_list.tpl -->
 		<!-- END -->
 
 	</div>
