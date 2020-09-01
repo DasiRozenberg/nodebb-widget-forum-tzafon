@@ -13,6 +13,7 @@
     margin: 10px 0;
     cursor: pointer;
     height: 492px;
+    border-radius: 15px;
 }
 
 .business .itemsContainer.businessContainer .businessItem {
@@ -23,6 +24,11 @@
 .business .itemsContainer.apartmentContainer .businessItem .carouselWrapper {
     cursor: pointer;
     height: 215px;
+}
+
+.business .itemsContainer.adContainer .businessItem .carouselWrapper {
+    cursor: initial;
+    height: 265px;
 }
 
 @media (min-width: 768px) {
@@ -66,6 +72,7 @@
 
 .business .itemsContainer.adContainer .businessItem .item-header {
     height: 150px;
+    margin: 0.5em;
 }
 
 .business .businessItem .first-hr {
@@ -84,6 +91,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.business .itemsContainer.adContainer .businessItem .item-body {
+    text-align: center;
 }
 
 .business .businessItem .item-body .fa {
