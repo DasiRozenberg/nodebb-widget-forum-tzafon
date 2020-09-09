@@ -64,7 +64,7 @@
                                 <br />
                                 {posts.data.8}
                                 &nbsp;
-                                <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></button>
+                                <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></a>
                                 <br />
                                 {posts.data.9}
                                 <br />
