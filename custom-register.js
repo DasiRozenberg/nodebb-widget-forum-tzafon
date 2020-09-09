@@ -82,6 +82,9 @@ module.exports = function(Widget) {
             if (key === 'consent' && value !== 'on') {
                 error = { message: 'יש לאשר את תנאי השימוש באתר.' };
             }
+            if (key === 'city' && value === '') {
+                error = { message: 'נא למלא את שם העיר בה אתה גר.' };
+            }
         }
 
         callback(error, params);
