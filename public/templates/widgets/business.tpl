@@ -29,6 +29,10 @@
 			<!-- IMPORT partials/ad_list.tpl -->
 		<!-- END -->
 
+		<!-- IF isCopouns -->
+			<!-- IMPORT partials/copoun_list.tpl -->
+		<!-- END -->
+
 	</div>
 </div>
 

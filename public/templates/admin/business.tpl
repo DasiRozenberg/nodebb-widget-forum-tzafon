@@ -18,4 +18,5 @@
 	<option value="apartment">Apartment</option>
 	<option value="ad">Ad</option>
 	<option value="adWithFilter">Ad With Filter</option>
+	<option value="copoun">Copoun</option>
 </select>		

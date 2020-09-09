@@ -39,6 +39,7 @@ module.exports = function(Widget) {
         const isApartment = widget.data.pluginType === 'apartment';
         const isAd = widget.data.pluginType === 'ad';
         const isAdWithFilter = widget.data.pluginType === 'adWithFilter';
+        const isCopouns = widget.data.pluginType === 'copoun';
 
         const filter = {};
 
@@ -57,13 +58,15 @@ module.exports = function(Widget) {
             filter.cities = [...cities];
             filter.bedNums = [...bedNums];
         } else if (isAd) {
-
+            // nothing
         } else if (isAdWithFilter) {
             const subcategories = new Set(postsData.map(item => item.data.length > 5 ? item.data[5] : '').filter(item => item));
             const cities = new Set(postsData.map(item => item.data.length > 3 ? item.data[3] : '').filter(item => item));
 
             filter.subcategories = [...subcategories];
             filter.cities = [...cities];
+        } else if (isCopouns) {
+            // nothing
         }
 
         const data = {
@@ -73,6 +76,7 @@ module.exports = function(Widget) {
             isApartment,
             isAd,
             isAdWithFilter,
+            isCopouns,
             cid: cid,
             isadmin: isadmin,
             relative_path: nconf.get('relative_path'),
