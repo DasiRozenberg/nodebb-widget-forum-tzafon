@@ -97,6 +97,10 @@
     text-align: center;
 }
 
+.business .itemsContainer.copounContainer .businessItem .item-body {
+    text-align: center;
+}
+
 .business .businessItem .item-body .fa {
     padding: 5px 0;
     width: 1em;

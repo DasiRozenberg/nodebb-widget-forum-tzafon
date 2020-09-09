@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <div class="itemsContainer adContainer">
+    <div class="itemsContainer copounContainer">
     <!-- IF !posts.length -->
         <a class="no-posts-container" href="/contact">
             <div class="no-posts-header">
