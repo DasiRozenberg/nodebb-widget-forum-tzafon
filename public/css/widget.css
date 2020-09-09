@@ -180,6 +180,11 @@
     .business .businessItem .popup-close {
         display: none;
     }
+    [component="category"],
+    .recent,
+    [data-widget-area="sidebar"] {
+        display: none;
+    }
 }
 
 .business .businessItem .popup-content {
