@@ -63,6 +63,8 @@
                                 {posts.data.7}
                                 <br />
                                 {posts.data.8}
+                                &nbsp;
+                                <button onclick="print()"><i class="fa fa-print"></i></button>
                                 <br />
                                 {posts.data.9}
                                 <br />
