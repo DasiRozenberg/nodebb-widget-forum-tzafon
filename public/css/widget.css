@@ -169,6 +169,12 @@
     cursor: initial;
 }
 
+@media print {
+    .business .businessItem .popup {
+        background-color: white;
+    }
+}
+
 .business .businessItem .popup-content {
     width: 550px;
     height: 400px;
