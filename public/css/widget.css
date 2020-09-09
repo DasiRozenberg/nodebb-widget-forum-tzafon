@@ -207,6 +207,7 @@
 
 .business .itemsContainer.copounContainer .businessItem .popup-header img {
     max-height: 100%;
+    margin: auto;
 }
 
 .business .businessItem .popup-body {
@@ -216,6 +217,14 @@
 
 .business .itemsContainer.apartmentContainer .businessItem .popup-body {
     padding-top: 0px;
+}
+
+.business .itemsContainer.copounContainer .businessItem .popup-body {
+    text-align: center;
+}
+
+.business .itemsContainer.copounContainer .businessItem .popup-body img {
+    margin: auto;
 }
 
 .business .itemsContainer.businessContainer .businessItem .popup-body .fa {
