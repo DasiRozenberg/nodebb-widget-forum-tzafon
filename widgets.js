@@ -177,10 +177,10 @@ module.exports = function(Widget) {
     };
 
     async function emailCopoun(req, res) {
-        const userObj = await user.getUsersFields(req.uid, ['uid', 'email', 'username', 'userslug', 'banned']);
-        let { uid, username, userslug } = userObj;
+        const userObj = await user.getUsersFields([req.uid], ['uid', 'email', 'username', 'userslug', 'banned']);
+        let { uid, username, userslug } = userObj[0];
         const subject = 'פורום צפון | קופונים';
-        const post = await posts.getPostData(pid);
+        const post = await posts.getPostData(req.body.pid);
         const postData = post.content.split('\n').map(item => item !== '.' ? item : "")
         const title = 'קיבלת קופון!';
         const options = {
@@ -189,6 +189,7 @@ module.exports = function(Widget) {
             postData: postData,
             title,
             userslug,
+            uid,
             url: null
         }
         emailer.send('copoun', uid, options, (err) => {
@@ -199,96 +200,4 @@ module.exports = function(Widget) {
             }
         })
     }
-
-
-
-    // async function emailCopoun(req, res) {
-    //     const pid = req.body.pid;
-    //     const uid = req.uid;
-
-    //     notifications.create({
-    //         subject: 'פורום צפון | קופונים',
-    //         bodyShort: `קיבלת קופון!`,
-    //         bodyLong: await getBodyLong(pid),
-    //         nid: ':uid:' + uid + Math.random(),
-    //         from: 1, // 1 is my admin account
-    //         type: 'email'
-    //     }, (err, notification) => {
-    //         notifications.push(notification, uid, () => {
-    //             res.json({ success: true });
-    //         });
-    //     });
-    // }
-
-    // async function getBodyLong(pid) {
-    //     const post = await posts.getPostData(pid);
-    //     const postData = post.content.split('\n').map(item => item !== '.' ? item : "")
-
-    //     return `
-    //     <div class="popup" style="display:none">
-    //         <div class="popup-content">
-    //             <div class="popup-close">
-    //                 <i class="fa fa-close"></i>
-    //             </div>
-    //             <div class="popup-header">
-    //                 ${postData[1]}
-    //             </div>
-    //             <div class="popup-body">
-    //                 ${postData[2]}
-    //                 <br />
-
-    //                 <span class="adHeader">
-    //                     ${postData[3]}
-    //                     <br />
-    //                     ${postData[4]}
-    //                 </span>
-    //                 <br />
-    //                 <br />
-
-    //                 <span>
-    //                     ${postData[5]}
-    //                     <br />
-    //                     ${postData[6]}
-    //                     <br />
-    //                     ${postData[7]}
-    //                 </span>
-    //                 <br />
-    //                 <br />
-    //             </div>
-    //         </div>
-    //     </div>
-    //     `;
-    // }
-
-    // async function emailCopoun(req, res) {
-    //     if (!req.body.pid) {
-    //         return res.status(400).json({ success: false, msg: 'קוד קופון לא תקין' });
-    //     }
-
-    //     await sendMail(req.body.email, req.body.name, 'פורום צפון | קופונים', req.body.message, null, res);
-    // }
-
-    // async function sendMail(replyTo, name, subject, message, uploadedFile, res) {
-    //     let mailParams = {
-    //         content_text: message.replace(/(?:\r\n|\r|\n)/g, '<br>'),
-    //         uploadedFile,
-    //         footer_text: ContactPage.messageFooter,
-    //         from_name: name,
-    //         subject: subject,
-    //         template: 'contact-page',
-    //         uid: 0,
-    //         replyTo,
-    //     }
-
-    //     mailParams = Object.assign({}, emailer._defaultPayload, mailParams);
-    //     const userData = await user.getUserDataByUID(widget.uid, widget.uid);
-
-    //     emailer.sendToEmail('copoun-page', userData.email, undefined, mailParams, (error) => {
-    //         if (error) {
-    //             winston.error("[plugin/contactpage] Failed to send mail:" + error);
-    //             return res.status(500).json({ success: false, message: '[[contactpage:error.mail]]' });
-    //         }
-    //         return res.json({ success: true });
-    //     });
-    // }
 }
