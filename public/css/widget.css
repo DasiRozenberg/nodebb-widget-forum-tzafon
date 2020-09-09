@@ -31,7 +31,7 @@
     height: 265px;
 }
 
-.business .itemsContainer.adContainer .businessItem {
+.business .itemsContainer.copounContainer .businessItem {
     cursor: pointer;
     height: 190px;
 }
@@ -180,6 +180,10 @@
     height: 450px;
 }
 
+.business .itemsContainer.copounContainer .businessItem .popup-content {
+    height: 470px;
+}
+
 .business .businessItem .popup-close {
     text-align: left;
     padding: 17px 0 0 20px;
@@ -198,6 +202,11 @@
 
 .business .itemsContainer.copounContainer .businessItem .popup-header {
     height: 100px;
+    padding: 0;
+}
+
+.business .itemsContainer.copounContainer .businessItem .popup-header img {
+    max-height: 100%;
 }
 
 .business .businessItem .popup-body {
