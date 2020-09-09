@@ -46,7 +46,6 @@
                         </div>
                         <div class="popup-body">
                             {posts.data.2}
-                            <br />
 
                             <span class="adHeader">
                                 {posts.data.3}
@@ -63,10 +62,10 @@
                                 {posts.data.7}
                                 <br />
                                 {posts.data.8}
-                                &nbsp;
                                 <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></a>
                                 <br />
                                 {posts.data.9}
+                                <a href="javascript:sendMail()" class="btn"><i class="fa fa-envelop"></i></a>
                                 <br />
                             </span>
                         </div>
@@ -77,3 +76,8 @@
     <!-- END posts -->
     </div>
 </div>
+<script>
+function sendMail() {
+    console.log('send mail')
+}
+</script>
