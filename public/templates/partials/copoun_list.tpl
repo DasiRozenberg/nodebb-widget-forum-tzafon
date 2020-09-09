@@ -64,7 +64,7 @@
                                 <br />
                                 {posts.data.8}
                                 &nbsp;
-                                <button onclick="print()"><i class="fa fa-print"></i></button>
+                                <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></button>
                                 <br />
                                 {posts.data.9}
                                 <br />
