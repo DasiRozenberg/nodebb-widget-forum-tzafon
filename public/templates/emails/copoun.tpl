@@ -11,9 +11,9 @@
 					<td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; direction: rtl;">
 					    <h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 20px; line-height: 27px; color: #333333; font-weight: normal;">{title}</h1>
 						<p style="margin: 0;">
-							<div class="popup" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 9999;background: #00000052;display: flex;align-items: center;justify-content: center;cursor: initial;">
-								<div class="popup-content" style="width: 550px;height: 560px;background-color: white;box-shadow: 0 0 8px black;border-radius: 15px;">
-									<div class="popup-close" style="display: none;text-align: left;padding: 17px 0 0 20px;">
+							<div class="popup" style="display: flex;align-items: center;justify-content: center;">
+								<div class="popup-content" style="width: 550px;height: 560px;box-shadow: 0 0 8px black;border-radius: 15px;">
+									<div class="popup-close" style="text-align: left;padding: 17px 0 0 20px;">
 										<i class="fa fa-close" style="cursor: pointer;"></i>
 									</div>
 									<div class="popup-header" style="border-bottom: 2px dashed #1D497B;padding: 0;font-weight: bold;font-size: 1.5em;height: 100px;">
