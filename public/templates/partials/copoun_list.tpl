@@ -47,7 +47,7 @@
                         <div class="popup-body">
                             {posts.data.2}
                             <br />
-                            
+
                             <span class="adHeader">
                                 {posts.data.3}
                                 <br />
@@ -94,10 +94,10 @@ function sendMail(pid) {
             pid: pid
         },
         success: function(data) {
-            showSuccess('הקופון נשלח לכתובת המייל הרשומה בחשבונך');
+            app.alertSuccess('הקופון נשלח לכתובת המייל הרשומה בחשבונך');
         },
         error: function(resp) {
-            showSuccess('ארעה שגיאה, נסה שוב מאוחר יותר');
+            app.alertError('ארעה שגיאה, נסה שוב מאוחר יותר');
         }
     });
 }
