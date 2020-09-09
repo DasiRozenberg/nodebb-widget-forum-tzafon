@@ -63,7 +63,7 @@
 				var $this = $(this);
 				$this.find('.item:first-child').addClass('active');
 			});
-			$('.businessContainer .businessItem .item-body, .apartmentContainer .businessItem .item-body .carouselWrapper', html).click(function (e){
+			$('.businessContainer .businessItem .item-body, .apartmentContainer .businessItem .item-body .carouselWrapper, .copounContainer .businessItem .item-body,', html).click(function (e){
 				if ($(e.target).parents('.left, .right').length === 0) {
 					$(this).parents('.businessItem').find('.popup').show();
 				}
