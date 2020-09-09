@@ -31,6 +31,11 @@
     height: 265px;
 }
 
+.business .itemsContainer.adContainer .businessItem {
+    cursor: pointer;
+    height: 190px;
+}
+
 @media (min-width: 768px) {
     .business .itemsContainer.apartmentContainer .businessItem {
         height: 415px;
@@ -138,6 +143,10 @@
     font-weight: bold;
 }
 
+.business .itemsContainer.copounContainer .businessItem .adHeader {
+    margin: 1rem 0;
+}
+
 .business i.no-data {
     opacity: 0;
 }
@@ -185,6 +194,10 @@
     padding: 0 20px 20px;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+.business .itemsContainer.copounContainer .businessItem .popup-header {
+    height: 100px;
 }
 
 .business .businessItem .popup-body {

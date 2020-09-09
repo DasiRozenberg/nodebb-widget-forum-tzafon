@@ -22,11 +22,13 @@
                     </div>
                     <hr class="first-hr" />
                     <div class="item-body">
+                        <br />
                         <span class="adHeader">
                             {posts.data.3}
                             <br />
                             {posts.data.4}
                         </span>
+                        <br />
                         <br />
 
                         <span>
