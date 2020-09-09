@@ -46,12 +46,14 @@
                         </div>
                         <div class="popup-body">
                             {posts.data.2}
-
+                            <br />
+                            
                             <span class="adHeader">
                                 {posts.data.3}
                                 <br />
                                 {posts.data.4}
                             </span>
+                            <br />
                             <br />
 
                             <span>
@@ -60,7 +62,11 @@
                                 {posts.data.6}
                                 <br />
                                 {posts.data.7}
-                                <br />
+                            </span>
+                            <br />
+                            <br />
+
+                            <span>
                                 {posts.data.8}
                                 <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></a>
                                 <br />
