@@ -65,7 +65,7 @@
                                 <a href="javascript:print()" class="btn"><i class="fa fa-print"></i></a>
                                 <br />
                                 {posts.data.9}
-                                <a href="javascript:sendMail()" class="btn"><i class="fa fa-envelop"></i></a>
+                                <a href="javascript:sendMail({posts.pid})" class="btn"><i class="fa fa-envelope"></i></a>
                                 <br />
                             </span>
                         </div>
@@ -77,7 +77,22 @@
     </div>
 </div>
 <script>
-function sendMail() {
-    console.log('send mail')
+function sendMail(pid) {
+    $.ajax({
+        type: "POST",
+        headers: {
+            'x-csrf-token': config.csrf_token,
+        },
+        url: '/api/notify-copoun',
+        data: {
+            pid: pid
+        },
+        success: function(data) {
+            showSuccess('הקופון נשלח לכתובת המייל הרשומה בחשבונך');
+        },
+        error: function(resp) {
+            showSuccess('ארעה שגיאה, נסה שוב מאוחר יותר');
+        }
+    });
 }
 </script>
