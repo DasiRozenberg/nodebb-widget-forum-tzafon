@@ -17,10 +17,10 @@
 										<i class="fa fa-close" style="cursor: pointer;"></i>
 									</div>
 									<div class="popup-header" style="border-bottom: 2px dashed #1D497B;padding: 0;font-weight: bold;font-size: 1.5em;height: 100px;">
-										{postData.1}
+										<img src="{postData.1}" />
 									</div>
 									<div class="popup-body" style="padding: 20px;line-height: 2.25em;text-align: center;">
-										{postData.2}
+										<img src="{postData.2}" />
 										<br>
 
 										<span class="adHeader" style="font-size: 1.5em;font-weight: bold;margin: 1rem 0;">
