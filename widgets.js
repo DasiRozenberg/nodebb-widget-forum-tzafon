@@ -182,7 +182,6 @@ module.exports = function(Widget) {
         const subject = 'פורום צפון | קופונים';
         const post = await posts.getPostData(req.body.pid);
         const postData = post.content.split('\n').map(item => item !== '.' ? item : "");
-        postData[1] = nconf.get('url') + postData[1].match(/\((.*)\)/)[1];
         postData[2] = nconf.get('url') + postData[2].match(/\((.*)\)/)[1];
         const title = 'קיבלת קופון!';
         const options = {
